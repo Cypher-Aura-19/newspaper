@@ -20,8 +20,8 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
           {/* Masthead */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 retro-border flex items-center justify-center bg-white text-black">
-                <span className="newspaper-byline text-lg">TR</span>
+              <div className="w-12 h-12 retro-border flex items-center justify-center bg-white text-black flex-shrink-0">
+                <span className="newspaper-byline text-sm font-bold leading-none">TR</span>
               </div>
               <div>
                 <div className="newspaper-headline text-xl text-black">

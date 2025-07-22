@@ -120,16 +120,6 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
       );
 
       // Academic badges floating animation
-      gsap.to(".education-badge", {
-        y: -4,
-        rotation: 1,
-        duration: 2.2,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.15
-      });
-
       // Breaking academic news flash
       gsap.to(".academic-flash", {
         opacity: 0.85,
@@ -262,7 +252,7 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
                 </p>
                 <div className="flex gap-2">
                   {['Three.js', 'Next.js', 'Blender'].map((tech, index) => (
-                    <span key={index} className="vintage-badge vintage-badge-dark education-badge">
+                    <span key={index} className="vintage-badge vintage-badge-dark">
                       {tech}
                     </span>
                   ))}

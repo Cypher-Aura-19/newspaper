@@ -101,16 +101,6 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
       );
 
       // Skill badges news ticker animation
-      gsap.to(".skill-badge", {
-        x: 3,
-        y: -2,
-        duration: 2.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.12
-      });
-
       // Breaking news flash for headers
       gsap.to(".skills-flash", {
         opacity: 0.9,
@@ -244,7 +234,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
             </div>
             <div className="flex flex-wrap gap-2">
               {designTools.map((tool, index) => (
-                <span key={index} className={`vintage-badge skill-badge ${
+                <span key={index} className={`vintage-badge ${
                   index % 2 === 0 ? 'vintage-badge-dark' : ''
                 }`}>
                   {tool}
@@ -262,7 +252,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
             </div>
             <div className="flex flex-wrap gap-2">
               {softSkills.map((skill, index) => (
-                <span key={index} className={`vintage-badge skill-badge ${
+                <span key={index} className={`vintage-badge ${
                   index % 2 === 0 ? 'vintage-badge-dark' : ''
                 }`}>
                   {skill}

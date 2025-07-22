@@ -104,16 +104,6 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
       );
 
       // Newspaper elements floating animation
-      gsap.to(".newspaper-float", {
-        y: -8,
-        rotation: 2,
-        duration: 3,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.2
-      });
-
       // Breaking news ticker effect
       gsap.to(".news-ticker", {
         x: -20,
@@ -238,7 +228,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           {/* Sidebar */}
           <div ref={sidebarRef} className="lg:col-span-4 order-2 space-y-4 sm:space-y-6">
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+              <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <Target className="w-4 h-4 animate-spin" style={{ animationDuration: '4s' }} />
                   <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">WHAT DRIVES HIM</h3>
@@ -268,7 +258,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             </div>
 
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+              <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <Lightbulb className="w-4 h-4 animate-bounce" />
                   <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">INTERESTS & RESEARCH</h3>
@@ -295,7 +285,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
 
             {/* Quick Stats */}
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+              <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <TrendingUp className="w-4 h-4 animate-pulse" />
                   <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">BY THE NUMBERS</h3>

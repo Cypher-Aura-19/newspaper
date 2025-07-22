@@ -85,26 +85,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
       );
 
       // Project badges floating animation
-      gsap.to(".project-badge", {
-        y: -5,
-        rotation: 2,
-        duration: 2.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.2
-      });
-
       // Technology badges news ticker effect
-      gsap.to(".tech-badge", {
-        x: 2,
-        duration: 1.8,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.1
-      });
-
       // Breaking news flash for project headers
       gsap.to(".project-flash", {
         opacity: 0.8,
@@ -215,7 +196,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                     <h3 className="newspaper-headline text-2xl text-black">
                       {project.title}
                     </h3>
-                    <span className={`vintage-badge project-badge ${
+                    <span className={`vintage-badge ${
                       project.status === 'In Development' ? 'vintage-badge-dark' : ''
                     }`}>
                       {project.status}
@@ -259,7 +240,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       {project.technologies.map((tech, idx) => (
-                        <div key={idx} className={`vintage-badge tech-badge text-center ${
+                        <div key={idx} className={`vintage-badge text-center ${
                           idx % 2 === 0 ? 'vintage-badge-dark' : ''
                         }`}>
                           {tech}

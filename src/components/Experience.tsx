@@ -82,16 +82,6 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
       );
 
       // News ticker effect for badges
-      gsap.to(".experience-badge", {
-        x: 3,
-        y: -3,
-        duration: 2,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.15
-      });
-
       // Breaking news flash effect
       gsap.to(".breaking-flash", {
         opacity: 0.7,

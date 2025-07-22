@@ -93,6 +93,7 @@
       linear-gradient(45deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%);
     background-size: 15px 15px, 30px 30px;
     position: relative;
+    overflow: hidden;
   }
 
   /* Newspaper ink bleed effect */
@@ -160,6 +161,7 @@
     text-transform: uppercase;
     letter-spacing: 2.5px;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    line-height: 1;
   }
 
   /* Vintage borders and decorations */
