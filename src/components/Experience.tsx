@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, MapPin, Briefcase } from 'lucide-react';
+import { Calendar, MapPin, Briefcase, Newspaper, AlertCircle, Clock, TrendingUp, Users, Zap } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,19 +18,19 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Masthead slide down with bounce
+      // Masthead - breaking news alert animation
       gsap.fromTo(mastheadRef.current,
         {
           opacity: 0,
-          y: -80,
-          rotationX: -90
+          scale: 0.5,
+          rotation: -10
         },
         {
           opacity: 1,
-          y: 0,
-          rotationX: 0,
-          duration: 1.4,
-          ease: "bounce.out",
+          scale: 1,
+          rotation: 0,
+          duration: 1.8,
+          ease: "elastic.out(1, 0.5)",
           scrollTrigger: {
             trigger: mastheadRef.current,
             start: "top 80%",
@@ -39,18 +39,18 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
         }
       );
 
-      // Current job card with 3D flip effect
+      // Current job card - newspaper printing press effect
       gsap.fromTo(currentJobRef.current,
         {
           opacity: 0,
-          rotationY: -180,
-          scale: 0.5
+          x: -300,
+          skewX: 15
         },
         {
           opacity: 1,
-          rotationY: 0,
-          scale: 1,
-          duration: 1.6,
+          x: 0,
+          skewX: 0,
+          duration: 2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: currentJobRef.current,
@@ -60,18 +60,18 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
         }
       );
 
-      // Opportunities section with elastic entrance
+      // Opportunities section - urgent news flash effect
       gsap.fromTo(opportunitiesRef.current,
         {
           opacity: 0,
-          scale: 0.3,
-          rotation: -10
+          y: 100,
+          rotationX: -45
         },
         {
           opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1.8,
+          y: 0,
+          rotationX: 0,
+          duration: 2.2,
           ease: "elastic.out(1, 0.6)",
           scrollTrigger: {
             trigger: opportunitiesRef.current,
@@ -81,14 +81,23 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
         }
       );
 
-      // Floating badges animation
-      gsap.to(".vintage-badge", {
-        y: -5,
-        duration: 1.5,
+      // News ticker effect for badges
+      gsap.to(".experience-badge", {
+        x: 3,
+        y: -3,
+        duration: 2,
         ease: "power2.inOut",
         yoyo: true,
         repeat: -1,
-        stagger: 0.1
+        stagger: 0.15
+      });
+
+      // Breaking news flash effect
+      gsap.to(".breaking-flash", {
+        opacity: 0.7,
+        duration: 1,
+        yoyo: true,
+        repeat: -1
       });
 
     }, sectionRef);
@@ -119,9 +128,10 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
         <div className="max-w-6xl mx-auto">
           <div ref={currentJobRef} className="retro-border p-8 mb-8">
             <div className="bg-black text-white p-4 mb-6">
-              <div className="flex items-center gap-3 justify-center">
-                <Briefcase className="w-6 h-6" />
+              <div className="flex items-center gap-3 justify-center breaking-flash">
+                <AlertCircle className="w-6 h-6 animate-pulse" />
                 <h3 className="newspaper-byline text-white">CURRENT POSITION</h3>
+                <Clock className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
               </div>
             </div>
 
@@ -169,12 +179,15 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
 
               <div>
                 <div className="retro-border p-6 bg-white">
-                  <div className="bg-black text-white p-4 mb-6">
+                  <div className="bg-black text-white p-4 mb-6 animate-pulse">
+                    <div className="flex items-center justify-center gap-2">
+                      <Zap className="w-4 h-4 animate-bounce" />
                     <h4 className="newspaper-byline text-white text-center">TECHNOLOGIES</h4>
+                    </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {['Next.js', 'React.js', 'Tailwind CSS', 'TypeScript', 'REST APIs', 'Git'].map((tech, index) => (
-                      <div key={index} className={`vintage-badge text-center ${
+                      <div key={index} className={`vintage-badge experience-badge text-center ${
                         index % 2 === 0 ? 'vintage-badge-dark' : ''
                       }`}>
                         {tech}
@@ -187,8 +200,12 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
           </div>
 
           <div ref={opportunitiesRef} className="mt-8 retro-border p-8">
-            <div className="bg-black text-white p-4 mb-6">
-              <h3 className="newspaper-byline text-white text-center">SEEKING NEW OPPORTUNITIES</h3>
+            <div className="bg-red-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
+              <div className="flex items-center justify-center gap-2">
+                <TrendingUp className="w-5 h-5 animate-bounce" />
+                <h3 className="newspaper-byline text-white text-center">SEEKING NEW OPPORTUNITIES</h3>
+                <Users className="w-5 h-5 animate-bounce" style={{ animationDelay: '0.2s' }} />
+              </div>
             </div>
             
             <div className="text-center">
@@ -202,7 +219,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
               
               <div className="flex flex-wrap justify-center gap-3">
                 {['Full-Stack Development', 'Frontend Specialist', '3D Web Development', 'React/Next.js Expert'].map((role, index) => (
-                  <span key={index} className="vintage-badge vintage-badge-dark">
+                  <span key={index} className="vintage-badge vintage-badge-dark experience-badge">
                     {role}
                   </span>
                 ))}

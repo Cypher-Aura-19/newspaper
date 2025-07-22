@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code, Database, Wrench, TestTube } from 'lucide-react';
+import { Code, Database, Wrench, TestTube, Zap, TrendingUp, Award, Target, Cpu, Monitor } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,18 +18,19 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Masthead typewriter effect
+      // Masthead - special skills edition announcement
       gsap.fromTo(mastheadRef.current,
         {
           opacity: 0,
-          scaleX: 0,
-          transformOrigin: "left center"
+          y: -100,
+          rotationX: -90
         },
         {
           opacity: 1,
-          scaleX: 1,
-          duration: 1.5,
-          ease: "power4.out",
+          y: 0,
+          rotationX: 0,
+          duration: 2,
+          ease: "bounce.out",
           scrollTrigger: {
             trigger: mastheadRef.current,
             start: "top 80%",
@@ -38,20 +39,20 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         }
       );
 
-      // Skills cards with staggered 3D flip
+      // Skills cards - breaking news cascade
       gsap.fromTo(".skill-card",
         {
           opacity: 0,
-          rotationY: -90,
-          x: -50
+          scale: 0.3,
+          rotation: 45
         },
         {
           opacity: 1,
-          rotationY: 0,
-          x: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          stagger: 0.2,
+          scale: 1,
+          rotation: 0,
+          duration: 1.8,
+          ease: "elastic.out(1, 0.5)",
+          stagger: 0.3,
           scrollTrigger: {
             trigger: skillsGridRef.current,
             start: "top 75%",
@@ -60,14 +61,14 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         }
       );
 
-      // Progress bars animation
+      // Progress bars - news ticker filling effect
       gsap.fromTo(".vintage-progress-fill",
         { width: "0%" },
         {
           width: (i, target) => target.style.width,
-          duration: 2,
-          ease: "power2.out",
-          stagger: 0.1,
+          duration: 3,
+          ease: "power3.out",
+          stagger: 0.15,
           scrollTrigger: {
             trigger: skillsGridRef.current,
             start: "top 60%",
@@ -76,20 +77,21 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         }
       );
 
-      // Additional skills with wave effect
+      // Additional skills - urgent bulletin effect
       gsap.fromTo(".additional-skill",
         {
           opacity: 0,
-          y: 30,
-          scale: 0.8
+          x: 200,
+          rotationY: 90
         },
         {
           opacity: 1,
-          y: 0,
+          x: 0,
+          rotationY: 0,
           scale: 1,
-          duration: 1,
-          ease: "back.out(1.7)",
-          stagger: 0.15,
+          duration: 1.5,
+          ease: "power3.out",
+          stagger: 0.2,
           scrollTrigger: {
             trigger: additionalSkillsRef.current,
             start: "top 80%",
@@ -98,14 +100,23 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         }
       );
 
-      // Floating animation for skill badges
-      gsap.to(".vintage-badge", {
-        y: -3,
-        duration: 2,
+      // Skill badges news ticker animation
+      gsap.to(".skill-badge", {
+        x: 3,
+        y: -2,
+        duration: 2.5,
         ease: "power2.inOut",
         yoyo: true,
         repeat: -1,
-        stagger: 0.1
+        stagger: 0.12
+      });
+
+      // Breaking news flash for headers
+      gsap.to(".skills-flash", {
+        opacity: 0.9,
+        duration: 1.2,
+        yoyo: true,
+        repeat: -1
       });
 
     }, sectionRef);
@@ -116,7 +127,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
   const skillCategories = [
     {
       title: "FRONTEND DEVELOPMENT",
-      icon: <Code className="w-6 h-6" />,
+      icon: <Monitor className="w-6 h-6 animate-pulse" />,
       skills: [
         { name: "React.js", experience: "2+ years", level: 90 },
         { name: "Next.js", experience: "1.5+ years", level: 85 },
@@ -130,7 +141,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
     },
     {
       title: "BACKEND DEVELOPMENT",
-      icon: <Database className="w-6 h-6" />,
+      icon: <Database className="w-6 h-6 animate-spin" style={{ animationDuration: '4s' }} />,
       skills: [
         { name: "Node.js", experience: "2+ years", level: 85 },
         { name: "Express.js", experience: "2+ years", level: 85 },
@@ -142,7 +153,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
     },
     {
       title: "DATABASE & TOOLS",
-      icon: <Wrench className="w-6 h-6" />,
+      icon: <Cpu className="w-6 h-6 animate-bounce" />,
       skills: [
         { name: "MongoDB", experience: "1.5+ years", level: 80 },
         { name: "MySQL", experience: "2+ years", level: 85 },
@@ -154,7 +165,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
     },
     {
       title: "QUALITY ASSURANCE",
-      icon: <TestTube className="w-6 h-6" />,
+      icon: <Target className="w-6 h-6 animate-pulse" />,
       skills: [
         { name: "Black-box Testing", experience: "1.5+ years", level: 85 },
         { name: "White-box Testing", experience: "1.5+ years", level: 80 },
@@ -192,7 +203,7 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         <div ref={skillsGridRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {skillCategories.map((category, index) => (
             <div key={index} className="skill-card retro-border p-6 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
+              <div className="bg-black text-white p-4 mb-6 skills-flash">
                 <div className="flex items-center gap-3 justify-center">
                   {category.icon}
                   <h3 className="newspaper-byline text-white">{category.title}</h3>
@@ -225,12 +236,15 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
 
         <div ref={additionalSkillsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="additional-skill retro-border p-6 bg-gray-50">
-            <div className="bg-black text-white p-4 mb-6">
-              <h3 className="newspaper-byline text-white text-center">DESIGN TOOLS</h3>
+            <div className="bg-black text-white p-4 mb-6 skills-flash">
+              <div className="flex items-center justify-center gap-2">
+                <Award className="w-4 h-4 animate-bounce" />
+                <h3 className="newspaper-byline text-white text-center">DESIGN TOOLS</h3>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {designTools.map((tool, index) => (
-                <span key={index} className={`vintage-badge ${
+                <span key={index} className={`vintage-badge skill-badge ${
                   index % 2 === 0 ? 'vintage-badge-dark' : ''
                 }`}>
                   {tool}
@@ -240,12 +254,15 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
           </div>
 
           <div className="additional-skill retro-border p-6 bg-gray-50">
-            <div className="bg-black text-white p-4 mb-6">
-              <h3 className="newspaper-byline text-white text-center">SOFT SKILLS</h3>
+            <div className="bg-black text-white p-4 mb-6 skills-flash">
+              <div className="flex items-center justify-center gap-2">
+                <TrendingUp className="w-4 h-4 animate-pulse" />
+                <h3 className="newspaper-byline text-white text-center">SOFT SKILLS</h3>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {softSkills.map((skill, index) => (
-                <span key={index} className={`vintage-badge ${
+                <span key={index} className={`vintage-badge skill-badge ${
                   index % 2 === 0 ? 'vintage-badge-dark' : ''
                 }`}>
                   {skill}
@@ -255,8 +272,11 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
           </div>
 
           <div className="additional-skill retro-border p-6 bg-gray-50">
-            <div className="bg-black text-white p-4 mb-6">
-              <h3 className="newspaper-byline text-white text-center">CURRENTLY LEARNING</h3>
+            <div className="bg-black text-white p-4 mb-6 skills-flash">
+              <div className="flex items-center justify-center gap-2">
+                <Zap className="w-4 h-4 animate-spin" />
+                <h3 className="newspaper-byline text-white text-center">CURRENTLY LEARNING</h3>
+              </div>
             </div>
             <ul className="newspaper-body space-y-2 text-gray-700">
               <li>• Advanced Three.js & WebGL</li>

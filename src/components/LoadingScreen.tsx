@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Newspaper, AlertTriangle, Radio, Zap, Clock, Globe } from 'lucide-react';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -157,10 +158,19 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
             )}
 
             {/* Loading Animation */}
-            <div className="flex justify-center items-center space-x-2 mb-4 sm:mb-6">
-              <div className="w-3 h-3 bg-black rounded-full animate-bounce"></div>
-              <div className="w-3 h-3 bg-black rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-3 h-3 bg-black rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="flex justify-center items-center space-x-4 mb-4 sm:mb-6">
+              <div className="animate-spin">
+                <Newspaper className="w-6 h-6 text-black" />
+              </div>
+              <div className="animate-pulse">
+                <Radio className="w-5 h-5 text-black" />
+              </div>
+              <div className="animate-bounce">
+                <Zap className="w-5 h-5 text-red-600" />
+              </div>
+              <div className="animate-ping">
+                <Globe className="w-4 h-4 text-black" />
+              </div>
             </div>
 
             {/* News Ticker */}

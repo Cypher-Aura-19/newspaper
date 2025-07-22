@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Github, Linkedin, Send, CheckCircle, Radio, Megaphone, Clock, AlertCircle, Zap } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
 
 interface ContactProps {
@@ -32,10 +32,11 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
 
           <div className="max-w-2xl mx-auto text-center">
             <div className="retro-border p-12 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
+              <div className="bg-green-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
                 <div className="flex items-center justify-center gap-3">
-                  <CheckCircle className="w-8 h-8 text-green-600" />
+                  <CheckCircle className="w-8 h-8 text-white animate-bounce" />
                   <h3 className="newspaper-byline text-white">MESSAGE DELIVERED</h3>
+                  <Radio className="w-6 h-6 animate-pulse" />
                 </div>
               </div>
               
@@ -97,8 +98,11 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <div className="retro-border p-8 mb-8 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center">CONTACT INFORMATION</h3>
+              <div className="bg-black text-white p-4 mb-6 animate-pulse">
+                <div className="flex items-center justify-center gap-2">
+                  <Radio className="w-4 h-4 animate-spin" style={{ animationDuration: '3s' }} />
+                  <h3 className="newspaper-byline text-white text-center">CONTACT INFORMATION</h3>
+                </div>
               </div>
               
               <div className="space-y-6">
@@ -138,8 +142,11 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
             </div>
 
             <div className="retro-border p-6 mb-8 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
-                <h4 className="newspaper-byline text-white text-center">PROFESSIONAL NETWORKS</h4>
+              <div className="bg-black text-white p-4 mb-6 animate-pulse">
+                <div className="flex items-center justify-center gap-2">
+                  <Megaphone className="w-4 h-4 animate-bounce" />
+                  <h4 className="newspaper-byline text-white text-center">PROFESSIONAL NETWORKS</h4>
+                </div>
               </div>
               
               <div className="space-y-3">
@@ -180,8 +187,12 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
             </div>
 
             <div className="retro-border p-6 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
-                <h4 className="newspaper-byline text-white text-center">AVAILABILITY STATUS</h4>
+              <div className="bg-green-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
+                <div className="flex items-center justify-center gap-2">
+                  <Clock className="w-4 h-4 animate-spin" />
+                  <h4 className="newspaper-byline text-white text-center">AVAILABILITY STATUS</h4>
+                  <AlertCircle className="w-4 h-4 animate-bounce" />
+                </div>
               </div>
               
               <div className="space-y-2">
@@ -195,8 +206,12 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
 
           <div>
             <div className="retro-border p-8 bg-gray-50">
-              <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center">SEND CORRESPONDENCE</h3>
+              <div className="bg-black text-white p-4 mb-6 animate-pulse">
+                <div className="flex items-center justify-center gap-2">
+                  <Send className="w-4 h-4 animate-bounce" />
+                  <h3 className="newspaper-byline text-white text-center">SEND CORRESPONDENCE</h3>
+                  <Zap className="w-4 h-4 animate-pulse" />
+                </div>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Calendar, Briefcase } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Calendar, Briefcase, Newspaper, AlertTriangle, Radio, Megaphone, Clock, Star } from 'lucide-react';
 
 interface HeroProps {
   isDark: boolean;
@@ -44,8 +44,12 @@ const Hero: React.FC<HeroProps> = ({ isDark }) => {
           <div className="lg:col-span-4 order-2 lg:order-1">
             <div className={`retro-border mb-8 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <div className="vintage-card-header">
-                <div className="bg-red-700 text-white p-3 -m-3 mb-4 border-2 border-black">
-                  <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">⚡ BREAKING NEWS ⚡</h3>
+                <div className="bg-red-700 text-white p-3 -m-3 mb-4 border-2 border-black animate-pulse">
+                  <div className="flex items-center justify-center gap-2">
+                    <AlertTriangle className="w-4 h-4 animate-bounce" />
+                    <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">BREAKING NEWS</h3>
+                    <AlertTriangle className="w-4 h-4 animate-bounce" style={{ animationDelay: '0.2s' }} />
+                  </div>
                 </div>
               </div>
               <div className="p-4 sm:p-6">
@@ -69,7 +73,12 @@ const Hero: React.FC<HeroProps> = ({ isDark }) => {
             {/* Contact Info Box */}
             <div className={`retro-border mb-8 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <div className="vintage-card-header">
-                <h4 className="newspaper-byline bg-black text-white p-3 -m-3 mb-4 text-center text-sm sm:text-base">CONTACT BUREAU</h4>
+                <div className="bg-black text-white p-3 -m-3 mb-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <Radio className="w-4 h-4 animate-pulse" />
+                    <h4 className="newspaper-byline text-white text-center text-sm sm:text-base">CONTACT BUREAU</h4>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
@@ -99,7 +108,12 @@ const Hero: React.FC<HeroProps> = ({ isDark }) => {
             {/* Current Status */}
             <div className={`retro-border ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <div className="vintage-card-header">
-                <h4 className="newspaper-byline bg-black text-white p-3 -m-3 mb-4 text-center text-sm sm:text-base">CURRENT ASSIGNMENTS</h4>
+                <div className="bg-black text-white p-3 -m-3 mb-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <Clock className="w-4 h-4 animate-spin" style={{ animationDuration: '3s' }} />
+                    <h4 className="newspaper-byline text-white text-center text-sm sm:text-base">CURRENT ASSIGNMENTS</h4>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 space-y-3 text-xs sm:text-sm">
                 <div className={`flex items-start gap-2 sm:gap-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
@@ -131,8 +145,11 @@ const Hero: React.FC<HeroProps> = ({ isDark }) => {
           <div className="lg:col-span-5 order-1 lg:order-2">
             <div className={`retro-border ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
               <div className="vintage-card-header">
-                <div className="flex items-center justify-between bg-black text-white p-3 -m-3 mb-6">
-                  <h2 className="newspaper-byline text-white text-sm sm:text-base">FRONT PAGE EXCLUSIVE</h2>
+                <div className="flex items-center justify-between bg-black text-white p-3 -m-3 mb-6 animate-pulse">
+                  <div className="flex items-center gap-2">
+                    <Star className="w-4 h-4 animate-spin" style={{ animationDuration: '4s' }} />
+                    <h2 className="newspaper-byline text-white text-sm sm:text-base">FRONT PAGE EXCLUSIVE</h2>
+                  </div>
                   <div className="text-xs text-gray-300">
                     Page 1 of 1
                   </div>
@@ -233,7 +250,12 @@ const Hero: React.FC<HeroProps> = ({ isDark }) => {
           <div className="lg:col-span-3 order-3">
             <div className={`retro-border mb-8 ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
               <div className="vintage-card-header">
-                <h4 className="newspaper-byline bg-black text-white p-3 -m-3 mb-4 text-center text-sm sm:text-base">TELEGRAPH LINES</h4>
+                <div className="bg-black text-white p-3 -m-3 mb-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <Megaphone className="w-4 h-4 animate-bounce" />
+                    <h4 className="newspaper-byline text-white text-center text-sm sm:text-base">TELEGRAPH LINES</h4>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                 <a 

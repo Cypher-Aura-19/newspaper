@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, MapPin, GraduationCap, Award } from 'lucide-react';
+import { Calendar, MapPin, GraduationCap, Award, BookOpen, Trophy, Star, Zap, Target } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,19 +18,19 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Masthead with graduation cap effect
+      // Masthead - academic achievement announcement
       gsap.fromTo(mastheadRef.current,
         {
           opacity: 0,
-          y: -60,
-          rotation: -5
+          scale: 0.2,
+          rotation: 360
         },
         {
           opacity: 1,
-          y: 0,
           rotation: 0,
-          duration: 1.4,
-          ease: "elastic.out(1, 0.6)",
+          scale: 1,
+          duration: 2.5,
+          ease: "elastic.out(1, 0.4)",
           scrollTrigger: {
             trigger: mastheadRef.current,
             start: "top 80%",
@@ -39,18 +39,19 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
         }
       );
 
-      // Education card with book opening effect
+      // Education card - academic bulletin effect
       gsap.fromTo(educationCardRef.current,
         {
           opacity: 0,
-          rotationY: -90,
-          transformOrigin: "left center"
+          y: 150,
+          rotationX: -60
         },
         {
           opacity: 1,
-          rotationY: 0,
-          duration: 1.6,
-          ease: "power3.out",
+          y: 0,
+          rotationX: 0,
+          duration: 2,
+          ease: "bounce.out",
           scrollTrigger: {
             trigger: educationCardRef.current,
             start: "top 75%",
@@ -59,18 +60,19 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
         }
       );
 
-      // Coursework table with typewriter effect
+      // Coursework table - academic records reveal
       gsap.fromTo(courseworkRef.current,
         {
           opacity: 0,
-          scaleY: 0,
-          transformOrigin: "top center"
+          x: -300,
+          skewX: 20
         },
         {
           opacity: 1,
-          scaleY: 1,
-          duration: 1.2,
-          ease: "power4.out",
+          x: 0,
+          skewX: 0,
+          duration: 1.8,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: courseworkRef.current,
             start: "top 80%",
@@ -79,18 +81,20 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
         }
       );
 
-      // Table rows stagger animation
+      // Table rows - academic achievement cascade
       gsap.fromTo(".course-row",
         {
           opacity: 0,
-          x: -30
+          x: -50,
+          scale: 0.9
         },
         {
           opacity: 1,
           x: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.1,
+          scale: 1,
+          duration: 1,
+          ease: "back.out(1.7)",
+          stagger: 0.12,
           scrollTrigger: {
             trigger: courseworkRef.current,
             start: "top 70%",
@@ -99,13 +103,13 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
         }
       );
 
-      // CGPA number counter animation
+      // CGPA counter with academic achievement effect
       gsap.fromTo(".cgpa-number",
         { textContent: "0.00" },
         {
           textContent: "3.06",
-          duration: 2,
-          ease: "power2.out",
+          duration: 3,
+          ease: "power3.out",
           snap: { textContent: 0.01 },
           scrollTrigger: {
             trigger: educationCardRef.current,
@@ -114,6 +118,25 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
           }
         }
       );
+
+      // Academic badges floating animation
+      gsap.to(".education-badge", {
+        y: -4,
+        rotation: 1,
+        duration: 2.2,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.15
+      });
+
+      // Breaking academic news flash
+      gsap.to(".academic-flash", {
+        opacity: 0.85,
+        duration: 1.3,
+        yoyo: true,
+        repeat: -1
+      });
 
     }, sectionRef);
 
@@ -155,10 +178,11 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
         <div className="max-w-6xl mx-auto">
           <div ref={educationCardRef} className="retro-border p-8 mb-8">
-            <div className="bg-black text-white p-4 mb-6">
+            <div className="bg-black text-white p-4 mb-6 academic-flash">
               <div className="flex items-center gap-3 justify-center">
-                <GraduationCap className="w-6 h-6" />
+                <BookOpen className="w-6 h-6 animate-pulse" />
                 <h3 className="newspaper-byline text-white">HIGHER EDUCATION</h3>
+                <Trophy className="w-5 h-5 animate-bounce" />
               </div>
             </div>
 
@@ -221,10 +245,11 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
             <div className="mt-8">
               <div className="retro-border p-6">
-                <div className="bg-black text-white p-4 mb-6">
+                <div className="bg-black text-white p-4 mb-6 academic-flash">
                   <div className="flex items-center gap-3 justify-center">
-                    <Award className="w-5 h-5" />
+                    <Star className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
                     <h4 className="newspaper-byline text-white">FINAL YEAR PROJECT</h4>
+                    <Zap className="w-4 h-4 animate-bounce" />
                   </div>
                 </div>
                 
@@ -237,7 +262,7 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
                 </p>
                 <div className="flex gap-2">
                   {['Three.js', 'Next.js', 'Blender'].map((tech, index) => (
-                    <span key={index} className="vintage-badge vintage-badge-dark">
+                    <span key={index} className="vintage-badge vintage-badge-dark education-badge">
                       {tech}
                     </span>
                   ))}
@@ -247,8 +272,12 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
           </div>
 
           <div ref={courseworkRef} className="retro-border p-6">
-            <div className="bg-black text-white p-4 mb-6">
-              <h3 className="newspaper-byline text-white text-center">RELEVANT COURSEWORK</h3>
+            <div className="bg-black text-white p-4 mb-6 academic-flash">
+              <div className="flex items-center justify-center gap-2">
+                <Target className="w-4 h-4 animate-pulse" />
+                <h3 className="newspaper-byline text-white text-center">RELEVANT COURSEWORK</h3>
+                <Award className="w-4 h-4 animate-bounce" />
+              </div>
             </div>
             
             <div className="overflow-x-auto">

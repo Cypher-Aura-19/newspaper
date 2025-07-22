@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FileText, Users, Target, Lightbulb, Award, TrendingUp } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,98 +19,104 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Masthead animation
+      // Masthead animation - newspaper printing effect
       gsap.fromTo(mastheadRef.current, 
         { 
           opacity: 0, 
-          y: -50,
-          scale: 0.9
+          scaleY: 0,
+          transformOrigin: "top center"
         },
         {
           opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
+          scaleY: 1,
+          duration: 1.5,
+          ease: "power4.out",
           scrollTrigger: {
             trigger: mastheadRef.current,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Main article slide in from left
+      // Main article - typewriter/printing press effect
       gsap.fromTo(mainArticleRef.current,
         {
           opacity: 0,
-          x: -100,
-          rotationY: -15
+          x: -200,
+          skewX: 10
+        },
+        {
+          opacity: 1,
+          x: 0,
+          skewX: 0,
+          duration: 1.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: mainArticleRef.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Sidebar - news ticker effect with stagger
+      gsap.fromTo(sidebarRef.current?.children || [],
+        {
+          opacity: 0,
+          x: 150,
+          rotationY: 45
         },
         {
           opacity: 1,
           x: 0,
           rotationY: 0,
-          duration: 1.5,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: mainArticleRef.current,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Sidebar slide in from right with stagger
-      gsap.fromTo(sidebarRef.current?.children || [],
-        {
-          opacity: 0,
-          x: 100,
-          scale: 0.8
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1,
-          ease: "back.out(1.7)",
-          stagger: 0.2,
+          duration: 1.2,
+          ease: "elastic.out(1, 0.6)",
+          stagger: 0.3,
           scrollTrigger: {
             trigger: sidebarRef.current,
             start: "top 70%",
-            end: "bottom 30%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Philosophy section with typewriter effect
+      // Philosophy section - breaking news alert effect
       gsap.fromTo(philosophyRef.current,
         {
           opacity: 0,
-          y: 50,
-          scale: 0.95
+          scale: 0.3,
+          rotation: -5
         },
         {
           opacity: 1,
-          y: 0,
           scale: 1,
-          duration: 1.3,
-          ease: "elastic.out(1, 0.5)",
+          rotation: 0,
+          duration: 2,
+          ease: "elastic.out(1, 0.4)",
           scrollTrigger: {
             trigger: philosophyRef.current,
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Floating animation for ornament
-      gsap.to(".ornament", {
-        y: -10,
+      // Newspaper elements floating animation
+      gsap.to(".newspaper-float", {
+        y: -8,
+        rotation: 2,
+        duration: 3,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.2
+      });
+
+      // Breaking news ticker effect
+      gsap.to(".news-ticker", {
+        x: -20,
         duration: 2,
         ease: "power2.inOut",
         yoyo: true,
@@ -157,9 +164,12 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           {/* Main Article */}
           <div className="lg:col-span-8 order-1">
             <div ref={mainArticleRef} className="retro-border p-4 sm:p-6 lg:p-8">
-              <div className="bg-black text-white p-4 mb-6 border-2 border-gray-400">
+              <div className="bg-black text-white p-4 mb-6 border-2 border-gray-400 news-ticker">
                 <div className="flex items-center justify-between">
-                  <h3 className="newspaper-byline text-white text-sm sm:text-base">FEATURE STORY</h3>
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4 animate-pulse" />
+                    <h3 className="newspaper-byline text-white text-sm sm:text-base">FEATURE STORY</h3>
+                  </div>
                   <div className="text-xs text-gray-300 hidden sm:block">
                     Continued from Page 1
                   </div>
@@ -228,8 +238,11 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           {/* Sidebar */}
           <div ref={sidebarRef} className="lg:col-span-4 order-2 space-y-4 sm:space-y-6">
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">WHAT DRIVES HIM</h3>
+              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+                <div className="flex items-center justify-center gap-2">
+                  <Target className="w-4 h-4 animate-spin" style={{ animationDuration: '4s' }} />
+                  <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">WHAT DRIVES HIM</h3>
+                </div>
               </div>
               
               <div className="space-y-3 sm:space-y-4">
@@ -255,8 +268,11 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             </div>
 
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">INTERESTS & RESEARCH</h3>
+              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+                <div className="flex items-center justify-center gap-2">
+                  <Lightbulb className="w-4 h-4 animate-bounce" />
+                  <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">INTERESTS & RESEARCH</h3>
+                </div>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -279,8 +295,11 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
 
             {/* Quick Stats */}
             <div className="retro-border p-4 sm:p-6 bg-white">
-              <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">BY THE NUMBERS</h3>
+              <div className="bg-black text-white p-4 mb-6 newspaper-float">
+                <div className="flex items-center justify-center gap-2">
+                  <TrendingUp className="w-4 h-4 animate-pulse" />
+                  <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">BY THE NUMBERS</h3>
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
@@ -297,8 +316,12 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
         </div>
 
         <div ref={philosophyRef} className="mt-8 sm:mt-12 retro-border p-4 sm:p-6 lg:p-8">
-          <div className="bg-black text-white p-4 mb-6">
-            <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">PHILOSOPHY</h3>
+          <div className="bg-black text-white p-4 mb-6 animate-pulse">
+            <div className="flex items-center justify-center gap-2">
+              <Award className="w-4 h-4 animate-bounce" />
+              <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">PHILOSOPHY</h3>
+              <Award className="w-4 h-4 animate-bounce" style={{ animationDelay: '0.3s' }} />
+            </div>
           </div>
           
           <blockquote className="newspaper-body text-lg sm:text-xl italic text-center text-gray-700 px-2">
@@ -310,7 +333,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             <div className="newspaper-byline text-xs sm:text-sm border-t-2 border-black pt-2">- Talha Rizwan, Software Engineer</div>
           </div>
           
-          <div className="ornament mt-4 sm:mt-6 text-2xl sm:text-3xl">❦</div>
+          <div className="ornament newspaper-float mt-4 sm:mt-6 text-2xl sm:text-3xl">❦</div>
         </div>
       </div>
     </section>

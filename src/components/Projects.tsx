@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink, Github, Calendar, Award } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Award, Newspaper, Rocket, Code, Lightbulb, Star, Zap } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,18 +18,19 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Masthead with newspaper printing effect
+      // Masthead - special edition announcement effect
       gsap.fromTo(mastheadRef.current,
         {
           opacity: 0,
-          scaleY: 0,
-          transformOrigin: "top center"
+          scale: 0.3,
+          rotation: 180
         },
         {
           opacity: 1,
-          scaleY: 1,
-          duration: 1.2,
-          ease: "power4.out",
+          scale: 1,
+          rotation: 0,
+          duration: 2.5,
+          ease: "elastic.out(1, 0.3)",
           scrollTrigger: {
             trigger: mastheadRef.current,
             start: "top 80%",
@@ -38,22 +39,22 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
         }
       );
 
-      // Projects stagger animation with 3D effect
+      // Projects - breaking news cascade effect
       gsap.fromTo(".project-card",
         {
           opacity: 0,
-          y: 100,
-          rotationX: -45,
-          scale: 0.8
+          x: -400,
+          rotationY: 90,
+          scale: 0.5
         },
         {
           opacity: 1,
-          y: 0,
-          rotationX: 0,
+          x: 0,
+          rotationY: 0,
           scale: 1,
-          duration: 1.4,
+          duration: 2,
           ease: "power3.out",
-          stagger: 0.3,
+          stagger: 0.4,
           scrollTrigger: {
             trigger: projectsRef.current,
             start: "top 70%",
@@ -62,19 +63,19 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
         }
       );
 
-      // Future projects with morphing effect
+      // Future projects - urgent bulletin effect
       gsap.fromTo(futureRef.current,
         {
           opacity: 0,
-          scale: 0.5,
-          rotation: 180
+          y: 200,
+          rotationX: -90
         },
         {
           opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 2,
-          ease: "elastic.out(1, 0.4)",
+          y: 0,
+          rotationX: 0,
+          duration: 2.5,
+          ease: "bounce.out",
           scrollTrigger: {
             trigger: futureRef.current,
             start: "top 80%",
@@ -83,29 +84,33 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
         }
       );
 
-      // Hover animations for project cards
-      gsap.set(".project-card", { transformOrigin: "center center" });
-      
-      document.querySelectorAll(".project-card").forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-          gsap.to(card, {
-            scale: 1.02,
-            rotationY: 5,
-            z: 50,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        });
-        
-        card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            scale: 1,
-            rotationY: 0,
-            z: 0,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        });
+      // Project badges floating animation
+      gsap.to(".project-badge", {
+        y: -5,
+        rotation: 2,
+        duration: 2.5,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.2
+      });
+
+      // Technology badges news ticker effect
+      gsap.to(".tech-badge", {
+        x: 2,
+        duration: 1.8,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.1
+      });
+
+      // Breaking news flash for project headers
+      gsap.to(".project-flash", {
+        opacity: 0.8,
+        duration: 1.5,
+        yoyo: true,
+        repeat: -1
       });
 
     }, sectionRef);
@@ -184,11 +189,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
         <div ref={projectsRef} className="space-y-12">
           {projects.map((project, index) => (
             <article key={index} className="project-card retro-border p-8">
-              <div className="bg-black text-white p-4 mb-6">
+              <div className="bg-black text-white p-4 mb-6 project-flash">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Award className="w-6 h-6" />
+                    <Rocket className="w-6 h-6 animate-pulse" />
                     <h3 className="newspaper-byline text-white">PROJECT SPOTLIGHT</h3>
+                    <Star className="w-5 h-5 animate-spin" style={{ animationDuration: '4s' }} />
                   </div>
                   <div className="flex gap-2">
                     <button className="vintage-btn p-2 bg-white text-black border-2 border-white hover:bg-black hover:text-white">
@@ -209,7 +215,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                     <h3 className="newspaper-headline text-2xl text-black">
                       {project.title}
                     </h3>
-                    <span className={`vintage-badge ${
+                    <span className={`vintage-badge project-badge ${
                       project.status === 'In Development' ? 'vintage-badge-dark' : ''
                     }`}>
                       {project.status}
@@ -245,12 +251,15 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
 
                 <div>
                   <div className="retro-border p-6">
-                    <div className="bg-black text-white p-4 mb-6">
-                      <h4 className="newspaper-byline text-white text-center">TECHNOLOGIES</h4>
+                    <div className="bg-black text-white p-4 mb-6 animate-pulse">
+                      <div className="flex items-center justify-center gap-2">
+                        <Code className="w-4 h-4 animate-bounce" />
+                        <h4 className="newspaper-byline text-white text-center">TECHNOLOGIES</h4>
+                      </div>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       {project.technologies.map((tech, idx) => (
-                        <div key={idx} className={`vintage-badge text-center ${
+                        <div key={idx} className={`vintage-badge tech-badge text-center ${
                           idx % 2 === 0 ? 'vintage-badge-dark' : ''
                         }`}>
                           {tech}
@@ -265,8 +274,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
         </div>
 
         <div ref={futureRef} className="mt-12 text-center retro-border p-8">
-          <div className="bg-black text-white p-4 mb-6">
-            <h3 className="newspaper-byline text-white text-center">FUTURE DEVELOPMENTS</h3>
+          <div className="bg-red-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
+            <div className="flex items-center justify-center gap-2">
+              <Lightbulb className="w-5 h-5 animate-bounce" />
+              <h3 className="newspaper-byline text-white text-center">FUTURE DEVELOPMENTS</h3>
+              <Zap className="w-5 h-5 animate-bounce" style={{ animationDelay: '0.3s' }} />
+            </div>
           </div>
           <h3 className="newspaper-headline text-3xl mb-4 text-black">
             MORE PROJECTS COMING SOON
