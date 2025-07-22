@@ -123,49 +123,58 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
 
   return (
     <section ref={sectionRef} id="about" className="newspaper-section py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newspaper Section Header */}
         <div ref={mastheadRef} className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
           <div className="absolute top-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
+          <div className="absolute top-1 left-6 right-6 h-px bg-gray-400"></div>
+          <div className="absolute bottom-1 left-6 right-6 h-px bg-gray-400"></div>
           
-          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
-            Section B • Personal Profile • Page 2 • {new Date().toLocaleDateString()}
+          <div className="text-xs sm:text-sm uppercase tracking-widest mb-2 text-gray-600 px-2">
+            <span className="hidden sm:inline">Section B • Personal Profile • Page 2 • </span>
+            {new Date().toLocaleDateString()}
           </div>
-          <h2 className="newspaper-headline text-5xl mb-4 text-black">
+          <h2 className="newspaper-headline text-3xl sm:text-4xl lg:text-5xl mb-4 text-black px-2">
             ABOUT THE ENGINEER
           </h2>
-          <div className="newspaper-subhead text-lg text-gray-600">
+          <div className="newspaper-subhead text-base sm:text-lg text-gray-600 px-2">
             An In-Depth Look at the Mind Behind the Code
           </div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-6 h-6 border-l-4 border-t-4 border-black"></div>
+          <div className="absolute top-0 right-0 w-6 h-6 border-r-4 border-t-4 border-black"></div>
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-l-4 border-b-4 border-black"></div>
+          <div className="absolute bottom-0 right-0 w-6 h-6 border-r-4 border-b-4 border-black"></div>
         </div>
 
         {/* Newspaper Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           
           {/* Main Article */}
-          <div className="lg:col-span-8">
-            <div ref={mainArticleRef} className="retro-border p-8">
-    <div className="bg-black text-white p-4 mb-6">
-      <div className="flex items-center justify-between">
-        <h3 className="newspaper-byline text-white">FEATURE STORY</h3>
-        <div className="text-xs text-gray-300">
-          Continued from Page 1
-        </div>
-      </div>
-    </div>
+          <div className="lg:col-span-8 order-1">
+            <div ref={mainArticleRef} className="retro-border p-4 sm:p-6 lg:p-8">
+              <div className="bg-black text-white p-4 mb-6 border-2 border-gray-400">
+                <div className="flex items-center justify-between">
+                  <h3 className="newspaper-byline text-white text-sm sm:text-base">FEATURE STORY</h3>
+                  <div className="text-xs text-gray-300 hidden sm:block">
+                    Continued from Page 1
+                  </div>
+                </div>
+              </div>
               
-              <h3 className="newspaper-headline text-3xl mb-4 text-black">
+              <h3 className="newspaper-headline text-xl sm:text-2xl lg:text-3xl mb-4 text-black">
                 THE MAKING OF A SOFTWARE ENGINEER
               </h3>
               
-              <div className="newspaper-byline mb-4 text-gray-500">
+              <div className="newspaper-byline mb-4 text-gray-500 text-xs sm:text-sm">
                 Special Correspondent • Technology Bureau • {new Date().toLocaleDateString()}
               </div>
 
-              <div className="newspaper-columns-2">
+              <div className="hidden sm:block newspaper-columns-2">
                 <p className="drop-cap newspaper-body mb-4 text-gray-700">
                   The journey of a passionate software engineering student began with curiosity 
                   about how digital experiences are crafted. What started as simple wonder has 
@@ -195,44 +204,62 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
                   while continuously learning and staying updated with the latest technologies."
                 </p>
               </div>
+              
+              {/* Mobile single column version */}
+              <div className="block sm:hidden space-y-4">
+                <p className="drop-cap newspaper-body text-gray-700">
+                  The journey of a passionate software engineering student began with curiosity 
+                  about how digital experiences are crafted.
+                </p>
+                
+                <p className="newspaper-body text-gray-700">
+                  Currently serving as a Frontend Developer at Galvan AI while completing his 
+                  final year at FAST NUCES, this young professional has demonstrated remarkable 
+                  ability to balance academic excellence with real-world application.
+                </p>
+
+                <p className="newspaper-body text-gray-700 italic">
+                  "I believe in creating intuitive user experiences that solve real-world problems."
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Sidebar */}
-          <div ref={sidebarRef} className="lg:col-span-4">
-            <div className="retro-border p-6 mb-6 bg-gray-50">
+          <div ref={sidebarRef} className="lg:col-span-4 order-2 space-y-4 sm:space-y-6">
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center">WHAT DRIVES HIM</h3>
+                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">WHAT DRIVES HIM</h3>
               </div>
               
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="newspaper-headline text-3xl text-black">1</span>
-                  <p className="newspaper-body text-gray-700">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start gap-2 sm:gap-4">
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">1</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Creating intuitive user experiences that solve real-world problems
                   </p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <span className="newspaper-headline text-3xl text-black">2</span>
-                  <p className="newspaper-body text-gray-700">
+                <div className="flex items-start gap-2 sm:gap-4">
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">2</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Bridging the gap between design and functionality
                   </p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <span className="newspaper-headline text-3xl text-black">3</span>
-                  <p className="newspaper-body text-gray-700">
+                <div className="flex items-start gap-2 sm:gap-4">
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">3</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Continuous learning and staying updated with latest technologies
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="retro-border p-6 mb-6 bg-gray-50">
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center">INTERESTS & RESEARCH</h3>
+                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">INTERESTS & RESEARCH</h3>
               </div>
               
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {[
                   '3D Web Development',
                   'Gamified Learning',
@@ -251,17 +278,17 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             </div>
 
             {/* Quick Stats */}
-            <div className="retro-border p-6 bg-gray-50">
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
-                <h3 className="newspaper-byline text-white text-center">BY THE NUMBERS</h3>
+                <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">BY THE NUMBERS</h3>
               </div>
-              <div className="space-y-3 text-center">
+              <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className="newspaper-headline text-2xl text-black">3+</div>
+                  <div className="newspaper-headline text-xl sm:text-2xl text-black bg-gray-100 p-2 border-2 border-black">3+</div>
                   <div className="text-xs text-gray-500">Years Coding</div>
                 </div>
                 <div>
-                  <div className="newspaper-headline text-2xl text-black">10+</div>
+                  <div className="newspaper-headline text-xl sm:text-2xl text-black bg-gray-100 p-2 border-2 border-black">10+</div>
                   <div className="text-xs text-gray-500">Technologies Mastered</div>
                 </div>
               </div>
@@ -269,21 +296,21 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           </div>
         </div>
 
-        <div ref={philosophyRef} className="mt-12 retro-border p-8">
+        <div ref={philosophyRef} className="mt-8 sm:mt-12 retro-border p-4 sm:p-6 lg:p-8">
           <div className="bg-black text-white p-4 mb-6">
-            <h3 className="newspaper-byline text-white text-center">PHILOSOPHY</h3>
+            <h3 className="newspaper-byline text-white text-center text-sm sm:text-base">PHILOSOPHY</h3>
           </div>
           
-          <blockquote className="newspaper-body text-xl italic text-center text-gray-700">
+          <blockquote className="newspaper-body text-lg sm:text-xl italic text-center text-gray-700 px-2">
             "Code is not just about solving problems—it's about creating experiences that make people's 
             lives better. Every line of code should serve a purpose, every interface should tell a story."
           </blockquote>
           
           <div className="text-center mt-4 text-gray-500">
-            <div className="newspaper-byline text-sm">- Talha Rizwan, Software Engineer</div>
+            <div className="newspaper-byline text-xs sm:text-sm border-t-2 border-black pt-2">- Talha Rizwan, Software Engineer</div>
           </div>
           
-          <div className="ornament mt-6">❦</div>
+          <div className="ornament mt-4 sm:mt-6 text-2xl sm:text-3xl">❦</div>
         </div>
       </div>
     </section>
