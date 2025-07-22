@@ -58,31 +58,39 @@
 
   /* Retro newspaper elements */
   .retro-border {
-    border: 3px solid #000;
+    border: 4px solid #000;
     position: relative;
     background: white;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
   }
 
   .retro-border::before {
     content: '';
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    border: 1px solid #000;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 2px solid #000;
     pointer-events: none;
   }
 
   .retro-border::after {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
-    border: 1px solid #666;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid #888;
     pointer-events: none;
+  }
+  
+  /* Enhanced vintage newspaper texture */
+  .retro-border {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
   }
 }
 
@@ -92,15 +100,16 @@
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     line-height: 0.9;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
   }
 
   .newspaper-subhead {
     font-family: 'Old Standard TT', serif;
     font-weight: 400;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
   }
 
   .newspaper-body {
@@ -108,6 +117,7 @@
     font-size: 16px;
     line-height: 1.7;
     text-align: justify;
+    hyphens: auto;
   }
 
   .newspaper-byline {
@@ -115,73 +125,78 @@
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
   }
 
   /* Vintage borders and decorations */
   .vintage-border {
-    border: 3px solid #000;
+    border: 4px solid #000;
     position: relative;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
   }
 
   .vintage-border::before {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
-    border: 1px solid #000;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid #000;
     pointer-events: none;
   }
 
   .newspaper-rule {
-    height: 3px;
+    height: 4px;
     background: #000;
     margin: 2rem 0;
     position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 
   .newspaper-rule::before {
     content: '';
     position: absolute;
-    top: -1px;
+    top: -2px;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: #000;
   }
 
   .newspaper-rule::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: -2px;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: #000;
   }
 
   /* Column layouts */
   .newspaper-columns-2 {
     column-count: 2;
-    column-gap: 3rem;
-    column-rule: 2px solid #000;
+    column-gap: 2rem;
+    column-rule: 3px solid #000;
     text-align: justify;
+    hyphens: auto;
   }
 
   .newspaper-columns-3 {
     column-count: 3;
-    column-gap: 2rem;
-    column-rule: 1px solid #000;
+    column-gap: 1.5rem;
+    column-rule: 2px solid #000;
     text-align: justify;
+    hyphens: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .newspaper-columns-2,
     .newspaper-columns-3 {
       column-count: 1;
       column-rule: none;
+      column-gap: 0;
     }
   }
 
@@ -190,41 +205,47 @@
     font-family: 'Old Standard TT', serif;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid #000;
+    letter-spacing: 2px;
+    border: 3px solid #000;
     background: #fff;
     color: #000;
-    padding: 12px 24px;
+    padding: 10px 20px;
     transition: all 0.3s ease;
     position: relative;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
   }
 
   .vintage-btn:hover {
     background: #000;
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 4px 4px 0px #666;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
   }
 
   .vintage-btn-dark {
     background: #000;
     color: #fff;
-    border: 2px solid #000;
+    border: 3px solid #000;
   }
 
   .vintage-btn-dark:hover {
     background: #fff;
     color: #000;
-    box-shadow: 4px 4px 0px #ccc;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
   }
 
   /* Newspaper masthead */
   .masthead {
-    border-top: 3px double #000;
-    border-bottom: 3px double #000;
+    border-top: 4px double #000;
+    border-bottom: 4px double #000;
     padding: 1rem 0;
     background: #fff;
     position: relative;
+    background-image: 
+      linear-gradient(45deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%),
+      linear-gradient(45deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
   }
 
   .masthead::before,
@@ -233,156 +254,244 @@
     position: absolute;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background: #000;
   }
 
   .masthead::before {
-    top: 6px;
+    top: 8px;
   }
 
   .masthead::after {
-    bottom: 6px;
+    bottom: 8px;
   }
 
   /* Vintage cards */
   .vintage-card {
-    border: 2px solid #000;
+    border: 3px solid #000;
     background: #fff;
     position: relative;
     transition: all 0.3s ease;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(0,0,0,0.03) 1px, transparent 0);
+    background-size: 25px 25px;
   }
 
   .vintage-card:hover {
-    box-shadow: 8px 8px 0px #000;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.4);
     transform: translate(-4px, -4px);
   }
 
   .vintage-card-header {
-    border-bottom: 2px solid #000;
-    background: #f8f8f8;
+    border-bottom: 3px solid #000;
+    background: #f0f0f0;
     padding: 1rem;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
   }
 
   /* Ornamental elements */
   .ornament {
     font-family: serif;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
     margin: 2rem 0;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
   }
 
   .ornament::before,
   .ornament::after {
-    content: '❦';
-    margin: 0 1rem;
+    content: '❦ ❦';
+    margin: 0 1.5rem;
   }
 
   /* Drop caps */
   .drop-cap::first-letter {
     float: left;
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    line-height: 3rem;
+    font-size: 5rem;
+    line-height: 4rem;
     padding-right: 8px;
     margin-top: 4px;
     font-weight: 900;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+    border: 2px solid #000;
+    padding: 8px 12px;
+    background: #f8f8f8;
   }
 
   /* Vintage form elements */
   .vintage-input {
-    border: 2px solid #000;
+    border: 3px solid #000;
     background: #fff;
     font-family: 'Crimson Text', serif;
     font-size: 16px;
-    padding: 12px;
+    padding: 10px 12px;
     transition: all 0.3s ease;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
   }
 
   .vintage-input:focus {
     outline: none;
-    box-shadow: inset 4px 4px 0px #f0f0f0;
+    box-shadow: inset 4px 4px 8px rgba(0,0,0,0.2);
     background: #fafafa;
+    border-color: #333;
   }
 
   /* Progress bars */
   .vintage-progress {
-    height: 8px;
+    height: 12px;
     background: #fff;
-    border: 2px solid #000;
+    border: 3px solid #000;
     position: relative;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2);
   }
 
   .vintage-progress-fill {
     height: 100%;
     background: #000;
     transition: width 0.5s ease;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 6px);
   }
 
   /* Newspaper sections */
   .newspaper-section {
-    border-bottom: 3px double #000;
+    border-bottom: 4px double #000;
     margin-bottom: 3rem;
     padding-bottom: 3rem;
+    position: relative;
   }
 
   .newspaper-section:last-child {
     border-bottom: none;
   }
+  
+  .newspaper-section::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #666;
+  }
 
   /* Vintage badges */
   .vintage-badge {
     font-family: 'Old Standard TT', serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid #000;
+    letter-spacing: 1.5px;
+    border: 2px solid #000;
     background: #fff;
     color: #000;
-    padding: 4px 8px;
+    padding: 6px 10px;
     display: inline-block;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
   }
 
   .vintage-badge-dark {
     background: #000;
     color: #fff;
   }
+  
+  .vintage-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.4);
+  }
 
   /* Newspaper grid */
   .newspaper-grid {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  @media (max-width: 640px) {
+    .newspaper-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 
   /* Vintage table */
   .vintage-table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #000;
+    border: 3px solid #000;
     font-family: 'Crimson Text', serif;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
   }
 
   .vintage-table th,
   .vintage-table td {
-    border: 1px solid #000;
-    padding: 12px;
+    border: 2px solid #000;
+    padding: 10px 12px;
     text-align: left;
   }
 
   .vintage-table th {
-    background: #f8f8f8;
+    background: #e8e8e8;
     font-family: 'Old Standard TT', serif;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
   }
 
   /* Responsive typography */
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .newspaper-headline {
-      font-size: 2rem;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    
+    .newspaper-body {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    
+    .newspaper-byline {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    
+    .drop-cap::first-letter {
+      font-size: 3.5rem;
+      line-height: 3rem;
+      padding: 6px 8px;
+    }
+    
+    .vintage-btn {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    
+    .vintage-badge {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+    
+    .retro-border {
+      border-width: 3px;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    }
+    
+    .vintage-card {
+      border-width: 2px;
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .newspaper-headline {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
     }
     
     .newspaper-body {
@@ -392,6 +501,19 @@
     .drop-cap::first-letter {
       font-size: 3rem;
       line-height: 2.5rem;
+      padding: 4px 6px;
+    }
+    
+    .masthead {
+      padding: 0.5rem 0;
+    }
+    
+    .ornament {
+      font-size: 20px;
+    }
+    
+    .vintage-progress {
+      height: 8px;
     }
   }
 

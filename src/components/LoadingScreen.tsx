@@ -18,11 +18,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   ];
 
   const newsItems = [
-    "📰 Frontend Developer Joins Galvan AI",
-    "🎓 Final Year Student Excels in Software Engineering",
-    "🚀 3D Gamified Learning Platform in Development",
-    "💼 Available for Full-Time Opportunities June 2025",
-    "⚡ React & Next.js Expert Ready for Collaboration"
+    "FRONTEND DEVELOPER JOINS GALVAN AI",
+    "FINAL YEAR STUDENT EXCELS IN SOFTWARE ENGINEERING",
+    "3D GAMIFIED LEARNING PLATFORM IN DEVELOPMENT",
+    "AVAILABLE FOR FULL-TIME OPPORTUNITIES JUNE 2025",
+    "REACT & NEXT.JS EXPERT READY FOR COLLABORATION"
   ];
 
   useEffect(() => {
@@ -75,54 +75,67 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
-      <div className="max-w-4xl w-full mx-auto px-4">
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newspaper Header */}
-        <div className="text-center mb-8 border-t-4 border-b-4 border-black py-4 relative">
+        <div className="text-center mb-6 sm:mb-8 border-t-4 border-b-4 border-black py-3 sm:py-4 relative bg-gray-50">
           <div className="absolute top-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
+          <div className="absolute top-1 left-4 right-4 h-px bg-gray-400"></div>
+          <div className="absolute bottom-1 left-4 right-4 h-px bg-gray-400"></div>
           
-          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
-            Special Edition • Loading Issue • {new Date().toLocaleDateString()} • Price: Free
+          <div className="text-xs sm:text-sm uppercase tracking-widest mb-2 text-gray-600 px-2">
+            <span className="hidden sm:inline">Special Edition • Loading Issue • </span>
+            {new Date().toLocaleDateString()} • Price: Free
           </div>
-          <h1 className="newspaper-headline text-6xl lg:text-8xl mb-2 text-black">
+          <h1 className="newspaper-headline text-4xl sm:text-6xl lg:text-8xl mb-2 text-black px-2">
             THE PORTFOLIO TIMES
           </h1>
-          <div className="newspaper-subhead text-lg text-gray-600">
-            "All the Code That's Fit to Print" • Breaking News Alert
+          <div className="newspaper-subhead text-sm sm:text-lg text-gray-600 px-2">
+            <span className="hidden sm:inline">"All the Code That's Fit to Print" • </span>Breaking News Alert
           </div>
+          
+          {/* Decorative corners */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-black"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-black"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-black"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-black"></div>
         </div>
 
         {/* Breaking News Banner */}
-        <div className="bg-red-600 text-white py-2 px-4 mb-6 relative overflow-hidden">
+        <div className="bg-red-700 text-white py-2 px-2 sm:px-4 mb-4 sm:mb-6 relative overflow-hidden border-2 border-black">
           <div className="flex items-center justify-center">
-            <span className="newspaper-byline text-white mr-4 animate-pulse">🚨 BREAKING NEWS</span>
+            <span className="newspaper-byline text-white mr-2 sm:mr-4 animate-pulse text-xs sm:text-sm">
+              ⚡ URGENT
+            </span>
             <div className="flex-1 overflow-hidden">
-              <div className="animate-marquee whitespace-nowrap newspaper-body">
+              <div className="animate-marquee whitespace-nowrap newspaper-body text-xs sm:text-sm">
                 {newsItems.join(' • ')} • {newsItems.join(' • ')}
               </div>
             </div>
           </div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-yellow-400"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></div>
         </div>
 
         {/* Main Loading Content */}
-        <div className="vintage-card p-8 bg-gray-50">
-          <div className="vintage-card-header -m-8 mb-6">
+        <div className="vintage-card p-4 sm:p-6 lg:p-8 bg-gray-50 shadow-lg">
+          <div className="vintage-card-header -m-4 sm:-m-6 lg:-m-8 mb-4 sm:mb-6 bg-black text-white">
             <div className="flex items-center justify-center">
-              <h2 className="newspaper-byline text-red-600">URGENT DISPATCH</h2>
+              <h2 className="newspaper-byline text-white text-sm sm:text-base p-3">URGENT DISPATCH</h2>
             </div>
           </div>
 
           <div className="text-center mb-8">
-            <h3 className="newspaper-headline text-4xl mb-4 text-black">
+            <h3 className="newspaper-headline text-2xl sm:text-3xl lg:text-4xl mb-4 text-black px-2">
               PORTFOLIO LOADING IN PROGRESS
             </h3>
-            <div className="newspaper-subhead text-xl text-gray-600 mb-6">
+            <div className="newspaper-subhead text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 px-2">
               Our Editorial Team is Preparing Your Digital Experience
             </div>
 
             {/* Typewriter Effect */}
-            <div className="mb-6 h-8">
-              <p className="newspaper-body text-lg text-black">
+            <div className="mb-4 sm:mb-6 h-6 sm:h-8">
+              <p className="newspaper-body text-sm sm:text-base lg:text-lg text-black px-2">
                 {typewriterText}
                 <span className="animate-pulse">|</span>
               </p>
@@ -130,45 +143,53 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
 
             {/* Progress Bar */}
             {showProgress && (
-              <div className="mb-6">
-                <div className="vintage-progress mb-2">
+              <div className="mb-4 sm:mb-6 px-2">
+                <div className="vintage-progress mb-2 border-2 border-black">
                   <div 
-                    className="vintage-progress-fill transition-all duration-300"
+                    className="vintage-progress-fill transition-all duration-300 bg-black"
                     style={{ width: `${progress}%` }}
                   ></div>
                 </div>
-                <p className="newspaper-byline text-sm text-gray-500">
+                <p className="newspaper-byline text-xs sm:text-sm text-gray-500">
                   Loading Progress: {Math.round(progress)}% Complete
                 </p>
               </div>
             )}
 
             {/* Loading Animation */}
-            <div className="flex justify-center items-center space-x-2 mb-6">
+            <div className="flex justify-center items-center space-x-2 mb-4 sm:mb-6">
               <div className="w-3 h-3 bg-black rounded-full animate-bounce"></div>
               <div className="w-3 h-3 bg-black rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
               <div className="w-3 h-3 bg-black rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
 
             {/* News Ticker */}
-            <div className="border-t-2 border-b-2 border-black py-3">
-              <div className="newspaper-byline text-xs mb-1">LATEST UPDATES</div>
+            <div className="border-t-2 border-b-2 border-black py-2 sm:py-3 bg-white mx-2">
+              <div className="newspaper-byline text-xs sm:text-sm mb-1">LATEST UPDATES</div>
               <div className="overflow-hidden">
-                <div className="animate-scroll newspaper-body text-sm">
-                  📊 Skills Database: 95% Loaded • 🎯 Projects Archive: Ready • 
-                  💼 Experience Records: Compiled • 🎓 Education History: Verified • 
-                  📞 Contact Information: Active
+                <div className="animate-scroll newspaper-body text-xs sm:text-sm">
+                  SKILLS DATABASE: 95% LOADED • PROJECTS ARCHIVE: READY • 
+                  EXPERIENCE RECORDS: COMPILED • EDUCATION HISTORY: VERIFIED • 
+                  CONTACT INFORMATION: ACTIVE
                 </div>
               </div>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="text-center text-xs text-gray-500 newspaper-body">
-            <p>Please stand by while we prepare the most comprehensive software engineering portfolio...</p>
-            <p className="mt-2">© 2025 The Portfolio Times • Talha Rizwan, Chief Technology Officer</p>
+          <div className="text-center text-xs sm:text-sm text-gray-500 newspaper-body px-2">
+            <p className="mb-2">Please stand by while we prepare the most comprehensive software engineering portfolio...</p>
+            <div className="border-t border-gray-300 pt-2 mt-2">
+              <p>© 2025 The Portfolio Times • Talha Rizwan, Chief Technology Officer</p>
+            </div>
           </div>
         </div>
+        
+        {/* Decorative elements */}
+        <div className="hidden sm:block absolute top-4 left-4 w-8 h-8 border-2 border-black bg-white transform rotate-45"></div>
+        <div className="hidden sm:block absolute top-4 right-4 w-8 h-8 border-2 border-black bg-white transform rotate-45"></div>
+        <div className="hidden sm:block absolute bottom-4 left-4 w-8 h-8 border-2 border-black bg-white transform rotate-45"></div>
+        <div className="hidden sm:block absolute bottom-4 right-4 w-8 h-8 border-2 border-black bg-white transform rotate-45"></div>
       </div>
 
       <style jsx>{`
