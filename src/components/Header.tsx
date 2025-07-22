@@ -58,8 +58,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             </button>
             
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 retro-border flex items-center justify-center bg-white text-black">
-                <span className="newspaper-byline text-sm font-bold">TR</span>
+              <div className="w-10 h-10 retro-border flex items-center justify-center bg-white text-black flex-shrink-0">
+                <span className="newspaper-byline text-xs font-bold leading-none">TR</span>
               </div>
               <span className={`newspaper-headline text-lg ${isDark ? 'text-white' : 'text-black'}`}>
                 The Portfolio Times
@@ -90,8 +90,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
         <div className={`p-4 border-b ${isDark ? 'border-gray-700' : 'border-gray-300'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 retro-border flex items-center justify-center bg-white text-black">
-                <span className="newspaper-byline text-sm font-bold">TR</span>
+              <div className="w-10 h-10 retro-border flex items-center justify-center bg-white text-black flex-shrink-0">
+                <span className="newspaper-byline text-xs font-bold leading-none">TR</span>
               </div>
               <div>
                 <div className={`newspaper-headline text-sm ${isDark ? 'text-white' : 'text-black'}`}>
