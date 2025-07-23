@@ -282,7 +282,7 @@ const Resume: React.FC<ResumeProps> = ({ isDark }) => {
                     <div>
                       <h4 className="newspaper-byline text-xs mb-1 text-black">Frontend</h4>
                       <div className="flex flex-wrap gap-1">
-                        {['React.js', 'Next.js', 'Three.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'JavaScript'].map((skill, index) => (
+                        {['React.js', 'Next.js', 'Three.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'JavaScript', 'Vue.js'].map((skill, index) => (
                           <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
                             {skill}
                           </span>
@@ -293,7 +293,7 @@ const Resume: React.FC<ResumeProps> = ({ isDark }) => {
                     <div>
                       <h4 className="newspaper-byline text-xs mb-1 text-black">Backend</h4>
                       <div className="flex flex-wrap gap-1">
-                        {['Node.js', 'Express.js', 'Spring Boot', 'REST APIs', 'GraphQL'].map((skill, index) => (
+                        {['Node.js', 'Express.js', 'Spring Boot', 'REST APIs', 'GraphQL', 'FastAPI', 'Django'].map((skill, index) => (
                           <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
                             {skill}
                           </span>
@@ -302,9 +302,9 @@ const Resume: React.FC<ResumeProps> = ({ isDark }) => {
                     </div>
 
                     <div>
-                      <h4 className="newspaper-byline text-xs mb-1 text-black">Database</h4>
+                      <h4 className="newspaper-byline text-xs mb-1 text-black">Database & Cloud</h4>
                       <div className="flex flex-wrap gap-1">
-                        {['MongoDB', 'MySQL', 'PostgreSQL', 'Redis'].map((skill, index) => (
+                        {['MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Firebase', 'AWS'].map((skill, index) => (
                           <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
                             {skill}
                           </span>
@@ -313,9 +313,31 @@ const Resume: React.FC<ResumeProps> = ({ isDark }) => {
                     </div>
 
                     <div>
-                      <h4 className="newspaper-byline text-xs mb-1 text-black">Tools & Others</h4>
+                      <h4 className="newspaper-byline text-xs mb-1 text-black">Testing & QA</h4>
                       <div className="flex flex-wrap gap-1">
-                        {['Git', 'Docker', 'SonarQube', 'Cypress', 'Jest', 'Python'].map((skill, index) => (
+                        {['SonarQube', 'Cypress', 'Jest', 'Selenium', 'Postman', 'Black-box Testing'].map((skill, index) => (
+                          <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="newspaper-byline text-xs mb-1 text-black">UI/UX & Design</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {['Figma', 'Adobe XD', 'Wireframing', 'Prototyping', 'User Research', 'Design Systems'].map((skill, index) => (
+                          <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="newspaper-byline text-xs mb-1 text-black">DevOps & Tools</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {['Git', 'Docker', 'CI/CD', 'GitHub Actions', 'Linux', 'Nginx'].map((skill, index) => (
                           <span key={index} className="vintage-badge" style={{ fontSize: '9px', padding: '1px 4px' }}>
                             {skill}
                           </span>
