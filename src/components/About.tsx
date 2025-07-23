@@ -122,9 +122,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className={`newspaper-section py-20 transition-colors duration-300 ${
-      isDark ? 'bg-gray-900' : 'bg-gray-50'
-    }`}>
+    <section ref={sectionRef} id="about" className="newspaper-section py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newspaper Section Header */}
         <div ref={mastheadRef} className="text-center mb-12 masthead relative">
@@ -135,20 +133,14 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           <div className="absolute top-1 left-6 right-6 h-px bg-gray-400"></div>
           <div className="absolute bottom-1 left-6 right-6 h-px bg-gray-400"></div>
           
-          <div className={`text-xs sm:text-sm uppercase tracking-widest mb-2 px-2 transition-colors duration-300 ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          }`}>
+          <div className="text-xs sm:text-sm uppercase tracking-widest mb-2 text-gray-600 px-2">
             <span className="hidden sm:inline">Section B • Personal Profile • Page 2 • </span>
             {new Date().toLocaleDateString()}
           </div>
-          <h2 className={`newspaper-headline text-3xl sm:text-4xl lg:text-5xl mb-4 px-2 transition-colors duration-300 ${
-            isDark ? 'text-gray-100' : 'text-black'
-          }`}>
+          <h2 className="newspaper-headline text-3xl sm:text-4xl lg:text-5xl mb-4 text-black px-2">
             ABOUT THE ENGINEER
           </h2>
-          <div className={`newspaper-subhead text-base sm:text-lg px-2 transition-colors duration-300 ${
-            isDark ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <div className="newspaper-subhead text-base sm:text-lg text-gray-600 px-2">
             An In-Depth Look at the Mind Behind the Code
           </div>
           
@@ -164,9 +156,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
           
           {/* Main Article */}
           <div className="lg:col-span-8 order-1">
-            <div ref={mainArticleRef} className={`retro-border p-4 sm:p-6 lg:p-8 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-white'
-            }`}>
+            <div ref={mainArticleRef} className="retro-border p-4 sm:p-6 lg:p-8">
               <div className="bg-black text-white p-4 mb-6 border-2 border-gray-400 news-ticker">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -179,31 +169,23 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
                 </div>
               </div>
               
-              <h3 className={`newspaper-headline text-xl sm:text-2xl lg:text-3xl mb-4 transition-colors duration-300 ${
-                isDark ? 'text-gray-100' : 'text-black'
-              }`}>
+              <h3 className="newspaper-headline text-xl sm:text-2xl lg:text-3xl mb-4 text-black">
                 THE MAKING OF A SOFTWARE ENGINEER
               </h3>
               
-              <div className={`newspaper-byline mb-4 text-xs sm:text-sm transition-colors duration-300 ${
-                isDark ? 'text-gray-400' : 'text-gray-500'
-              }`}>
+              <div className="newspaper-byline mb-4 text-gray-500 text-xs sm:text-sm">
                 Special Correspondent • Technology Bureau • {new Date().toLocaleDateString()}
               </div>
 
               <div className="hidden sm:block newspaper-columns-2">
-                <p className={`drop-cap newspaper-body mb-4 transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="drop-cap newspaper-body mb-4 text-gray-700">
                   The journey of a passionate software engineering student began with curiosity 
                   about how digital experiences are crafted. What started as simple wonder has 
                   evolved into deep expertise in modern web technologies, marking the rise of 
                   a promising talent in the tech industry.
                 </p>
                 
-                <p className={`newspaper-body mb-4 transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body mb-4 text-gray-700">
                   Currently serving as a Frontend Developer at Galvan AI while completing his 
                   final year at FAST NUCES, this young professional has demonstrated remarkable 
                   ability to balance academic excellence with real-world application. His 
@@ -212,18 +194,14 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
                   in a competitive field.
                 </p>
 
-                <p className={`newspaper-body mb-4 transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body mb-4 text-gray-700">
                   His final year project represents a significant contribution to educational 
                   technology, focusing on revolutionizing education through gamified 3D platforms. 
                   This innovative approach combines technical skills with a passion for creating 
                   meaningful learning experiences.
                 </p>
 
-                <p className={`newspaper-body transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body text-gray-700">
                   "I believe in creating intuitive user experiences that solve real-world problems," 
                   he explains. "My goal is to bridge the gap between design and functionality 
                   while continuously learning and staying updated with the latest technologies."
@@ -232,24 +210,18 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
               
               {/* Mobile single column version */}
               <div className="block sm:hidden space-y-4">
-                <p className={`drop-cap newspaper-body transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="drop-cap newspaper-body text-gray-700">
                   The journey of a passionate software engineering student began with curiosity 
                   about how digital experiences are crafted.
                 </p>
                 
-                <p className={`newspaper-body transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body text-gray-700">
                   Currently serving as a Frontend Developer at Galvan AI while completing his 
                   final year at FAST NUCES, this young professional has demonstrated remarkable 
                   ability to balance academic excellence with real-world application.
                 </p>
 
-                <p className={`newspaper-body italic transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body text-gray-700 italic">
                   "I believe in creating intuitive user experiences that solve real-world problems."
                 </p>
               </div>
@@ -258,9 +230,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
 
           {/* Sidebar */}
           <div ref={sidebarRef} className="lg:col-span-4 order-2 space-y-4 sm:space-y-6">
-            <div className={`retro-border p-4 sm:p-6 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-white'
-            }`}>
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <Target className="w-4 h-4 animate-spin" style={{ animationDuration: '4s' }} />
@@ -270,47 +240,27 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
               
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-2 sm:gap-4">
-                  <span className={`newspaper-headline text-2xl sm:text-3xl px-2 py-1 border-2 transition-colors duration-300 ${
-                    isDark 
-                      ? 'text-gray-100 bg-gray-700 border-gray-300' 
-                      : 'text-black bg-gray-100 border-black'
-                  }`}>1</span>
-                  <p className={`newspaper-body text-sm sm:text-base transition-colors duration-300 ${
-                    isDark ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">1</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Creating intuitive user experiences that solve real-world problems
                   </p>
                 </div>
                 <div className="flex items-start gap-2 sm:gap-4">
-                  <span className={`newspaper-headline text-2xl sm:text-3xl px-2 py-1 border-2 transition-colors duration-300 ${
-                    isDark 
-                      ? 'text-gray-100 bg-gray-700 border-gray-300' 
-                      : 'text-black bg-gray-100 border-black'
-                  }`}>2</span>
-                  <p className={`newspaper-body text-sm sm:text-base transition-colors duration-300 ${
-                    isDark ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">2</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Bridging the gap between design and functionality
                   </p>
                 </div>
                 <div className="flex items-start gap-2 sm:gap-4">
-                  <span className={`newspaper-headline text-2xl sm:text-3xl px-2 py-1 border-2 transition-colors duration-300 ${
-                    isDark 
-                      ? 'text-gray-100 bg-gray-700 border-gray-300' 
-                      : 'text-black bg-gray-100 border-black'
-                  }`}>3</span>
-                  <p className={`newspaper-body text-sm sm:text-base transition-colors duration-300 ${
-                    isDark ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <span className="newspaper-headline text-2xl sm:text-3xl text-black bg-gray-100 px-2 py-1 border-2 border-black">3</span>
+                  <p className="newspaper-body text-gray-700 text-sm sm:text-base">
                     Continuous learning and staying updated with latest technologies
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className={`retro-border p-4 sm:p-6 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-white'
-            }`}>
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <Lightbulb className="w-4 h-4 animate-bounce" />
@@ -337,9 +287,7 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             </div>
 
             {/* Quick Stats */}
-            <div className={`retro-border p-4 sm:p-6 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-white'
-            }`}>
+            <div className="retro-border p-4 sm:p-6 bg-white">
               <div className="bg-black text-white p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <TrendingUp className="w-4 h-4 animate-pulse" />
@@ -348,33 +296,19 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
               </div>
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className={`newspaper-headline text-xl sm:text-2xl p-2 border-2 transition-colors duration-300 ${
-                    isDark 
-                      ? 'text-gray-100 bg-gray-700 border-gray-300' 
-                      : 'text-black bg-gray-100 border-black'
-                  }`}>3+</div>
-                  <div className={`text-xs transition-colors duration-300 ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>Years Coding</div>
+                  <div className="newspaper-headline text-xl sm:text-2xl text-black bg-gray-100 p-2 border-2 border-black">3+</div>
+                  <div className="text-xs text-gray-500">Years Coding</div>
                 </div>
                 <div>
-                  <div className={`newspaper-headline text-xl sm:text-2xl p-2 border-2 transition-colors duration-300 ${
-                    isDark 
-                      ? 'text-gray-100 bg-gray-700 border-gray-300' 
-                      : 'text-black bg-gray-100 border-black'
-                  }`}>10+</div>
-                  <div className={`text-xs transition-colors duration-300 ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>Technologies Mastered</div>
+                  <div className="newspaper-headline text-xl sm:text-2xl text-black bg-gray-100 p-2 border-2 border-black">10+</div>
+                  <div className="text-xs text-gray-500">Technologies Mastered</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div ref={philosophyRef} className={`mt-8 sm:mt-12 retro-border p-4 sm:p-6 lg:p-8 transition-colors duration-300 ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        }`}>
+        <div ref={philosophyRef} className="mt-8 sm:mt-12 retro-border p-4 sm:p-6 lg:p-8">
           <div className="bg-black text-white p-4 mb-6 animate-pulse">
             <div className="flex items-center justify-center gap-2">
               <Award className="w-4 h-4 animate-bounce" />
@@ -383,19 +317,13 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
             </div>
           </div>
           
-          <blockquote className={`newspaper-body text-lg sm:text-xl italic text-center px-2 transition-colors duration-300 ${
-            isDark ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+          <blockquote className="newspaper-body text-lg sm:text-xl italic text-center text-gray-700 px-2">
             "Code is not just about solving problems—it's about creating experiences that make people's 
             lives better. Every line of code should serve a purpose, every interface should tell a story."
           </blockquote>
           
-          <div className={`text-center mt-4 transition-colors duration-300 ${
-            isDark ? 'text-gray-400' : 'text-gray-500'
-          }`}>
-            <div className={`newspaper-byline text-xs sm:text-sm border-t-2 pt-2 transition-colors duration-300 ${
-              isDark ? 'border-gray-600' : 'border-black'
-            }`}>- Talha Rizwan, Software Engineer</div>
+          <div className="text-center mt-4 text-gray-500">
+            <div className="newspaper-byline text-xs sm:text-sm border-t-2 border-black pt-2">- Talha Rizwan, Software Engineer</div>
           </div>
           
           <div className="ornament newspaper-float mt-4 sm:mt-6 text-2xl sm:text-3xl">❦</div>

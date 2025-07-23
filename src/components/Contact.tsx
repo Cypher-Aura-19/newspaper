@@ -41,9 +41,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
 
   if (state.succeeded) {
     return (
-      <section id="contact" className={`newspaper-section py-20 contact-section transition-colors duration-300 ${
-        isDark ? 'bg-gray-900' : 'bg-white'
-      }`}>
+      <section id="contact" className="newspaper-section py-20 bg-white contact-section">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 masthead relative">
             <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -51,27 +49,19 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
             <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
             
-            <div className={`text-xs uppercase tracking-widest mb-2 transition-colors duration-300 ${
-              isDark ? 'text-gray-400' : 'text-gray-600'
-            }`}>
+            <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
               Section G • Contact Information • Page 7 • {new Date().toLocaleDateString()}
             </div>
-            <h2 className={`newspaper-headline text-5xl mb-4 transition-colors duration-300 ${
-              isDark ? 'text-gray-100' : 'text-black'
-            }`}>
+            <h2 className="newspaper-headline text-5xl mb-4 text-black">
               GET IN TOUCH
             </h2>
-            <div className={`newspaper-subhead text-lg transition-colors duration-300 ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            }`}>
+            <div className="newspaper-subhead text-lg text-gray-600">
               Ready to Collaborate? Let's Create Something Amazing
             </div>
           </div>
 
           <div className="max-w-2xl mx-auto text-center">
-            <div className={`retro-border p-12 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
-            }`}>
+            <div className="retro-border p-12 bg-gray-50">
               <div className="bg-green-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
                 <div className="flex items-center justify-center gap-3">
                   <CheckCircle className="w-8 h-8 text-white animate-bounce" />
@@ -81,14 +71,10 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               </div>
               
               <div className="text-center">
-                <h2 className={`newspaper-headline text-4xl mb-6 transition-colors duration-300 ${
-                  isDark ? 'text-gray-100' : 'text-black'
-                }`}>
+                <h2 className="newspaper-headline text-4xl mb-6 text-black">
                   CORRESPONDENCE RECEIVED
                 </h2>
-                <p className={`newspaper-body text-lg mb-8 transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body text-lg mb-8 text-gray-700">
                   Your message has been successfully transmitted to our editorial desk. 
                   We shall respond to your inquiry within 24 hours during business days.
                 </p>
@@ -96,14 +82,10 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                 <div className="ornament mb-8">❦</div>
                 
                 <div className="space-y-4">
-                  <p className={`newspaper-byline transition-colors duration-300 ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
+                  <p className="newspaper-byline text-gray-500">
                     EXPECTED RESPONSE TIME: 24 HOURS
                   </p>
-                  <p className={`newspaper-body transition-colors duration-300 ${
-                    isDark ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <p className="newspaper-body text-gray-700">
                     Thank you for your interest in collaboration. We look forward to discussing 
                     your project requirements and exploring potential opportunities.
                   </p>
@@ -124,9 +106,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
   }
 
   return (
-    <section id="contact" className={`newspaper-section py-20 contact-section transition-colors duration-300 ${
-      isDark ? 'bg-gray-900' : 'bg-white'
-    }`}>
+    <section id="contact" className="newspaper-section py-20 bg-white contact-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -134,28 +114,20 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
           
-          <div className={`text-xs uppercase tracking-widest mb-2 transition-colors duration-300 ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          }`}>
+          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
             Section G • Contact Information • Page 7 • {new Date().toLocaleDateString()}
           </div>
-          <h2 className={`newspaper-headline text-5xl mb-4 transition-colors duration-300 ${
-            isDark ? 'text-gray-100' : 'text-black'
-          }`}>
+          <h2 className="newspaper-headline text-5xl mb-4 text-black">
             GET IN TOUCH
           </h2>
-          <div className={`newspaper-subhead text-lg transition-colors duration-300 ${
-            isDark ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <div className="newspaper-subhead text-lg text-gray-600">
             Ready to Collaborate? Let's Create Something Amazing
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <div className={`retro-border p-8 mb-8 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
-            }`}>
+            <div className="retro-border p-8 mb-8 bg-gray-50">
               <div className="bg-black text-white p-4 mb-6 animate-pulse">
                 <div className="flex items-center justify-center gap-2">
                   <Radio className="w-4 h-4 animate-spin" style={{ animationDuration: '3s' }} />
@@ -165,50 +137,32 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className={`retro-border p-3 transition-colors duration-300 ${
-                    isDark ? 'bg-gray-700' : 'bg-white'
-                  }`}>
+                  <div className="retro-border p-3 bg-white">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className={`newspaper-byline transition-colors duration-300 ${
-                      isDark ? 'text-gray-100' : 'text-black'
-                    }`}>TELEPHONE</h4>
-                    <p className={`newspaper-body transition-colors duration-300 ${
-                      isDark ? 'text-gray-300' : 'text-gray-700'
-                    }`}>+92 334 0500725</p>
+                    <h4 className="newspaper-byline text-black">TELEPHONE</h4>
+                    <p className="newspaper-body text-gray-700">+92 334 0500725</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className={`retro-border p-3 transition-colors duration-300 ${
-                    isDark ? 'bg-gray-700' : 'bg-white'
-                  }`}>
+                  <div className="retro-border p-3 bg-white">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className={`newspaper-byline transition-colors duration-300 ${
-                      isDark ? 'text-gray-100' : 'text-black'
-                    }`}>ELECTRONIC MAIL</h4>
-                    <p className={`newspaper-body transition-colors duration-300 ${
-                      isDark ? 'text-gray-300' : 'text-gray-700'
-                    }`}>work.talharizwan@gmail.com</p>
+                    <h4 className="newspaper-byline text-black">ELECTRONIC MAIL</h4>
+                    <p className="newspaper-body text-gray-700">work.talharizwan@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className={`retro-border p-3 transition-colors duration-300 ${
-                    isDark ? 'bg-gray-700' : 'bg-white'
-                  }`}>
+                  <div className="retro-border p-3 bg-white">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className={`newspaper-byline transition-colors duration-300 ${
-                      isDark ? 'text-gray-100' : 'text-black'
-                    }`}>POSTAL ADDRESS</h4>
-                    <p className={`newspaper-body transition-colors duration-300 ${
-                      isDark ? 'text-gray-300' : 'text-gray-700'
-                    }`}>
+                    <h4 className="newspaper-byline text-black">POSTAL ADDRESS</h4>
+                    <p className="newspaper-body text-gray-700">
                       House No: B-141, Main street, Sector 1,<br />
                       Khayaban e sir syed, Islamabad
                     </p>
@@ -217,9 +171,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               </div>
             </div>
 
-            <div className={`retro-border p-6 mb-8 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
-            }`}>
+            <div className="retro-border p-6 mb-8 bg-gray-50">
               <div className="bg-black text-white p-4 mb-6 animate-pulse">
                 <div className="flex items-center justify-center gap-2">
                   <Megaphone className="w-4 h-4 animate-bounce" />
@@ -232,21 +184,13 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                   href="https://github.com/Cypher-Aura-19"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`vintage-btn w-full flex items-center justify-between transition-all duration-300 ${
-                    isDark
-                      ? 'bg-gray-700 text-gray-100 border-gray-300 hover:bg-gray-300 hover:text-gray-900'
-                      : 'bg-white text-black border-black hover:bg-black hover:text-white'
-                  }`}
+                  className="vintage-btn w-full flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <Github className="w-5 h-5" />
                     <div>
-                      <div className={`newspaper-byline text-left transition-colors duration-300 ${
-                        isDark ? 'text-gray-100' : 'text-black'
-                      }`}>GitHub</div>
-                      <div className={`newspaper-body text-xs text-left transition-colors duration-300 ${
-                        isDark ? 'text-gray-300' : 'text-gray-600'
-                      }`}>
+                      <div className="newspaper-byline text-left text-black">GitHub</div>
+                      <div className="newspaper-body text-xs text-left text-gray-600">
                         View code repositories
                       </div>
                     </div>
@@ -257,21 +201,13 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                   href="https://www.linkedin.com/in/talha-rizwan-986552371/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`vintage-btn w-full flex items-center justify-between transition-all duration-300 ${
-                    isDark
-                      ? 'bg-gray-700 text-gray-100 border-gray-300 hover:bg-gray-300 hover:text-gray-900'
-                      : 'bg-white text-black border-black hover:bg-black hover:text-white'
-                  }`}
+                  className="vintage-btn w-full flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
                     <Linkedin className="w-5 h-5" />
                     <div>
-                      <div className={`newspaper-byline text-left transition-colors duration-300 ${
-                        isDark ? 'text-gray-100' : 'text-black'
-                      }`}>LinkedIn</div>
-                      <div className={`newspaper-body text-xs text-left transition-colors duration-300 ${
-                        isDark ? 'text-gray-300' : 'text-gray-600'
-                      }`}>
+                      <div className="newspaper-byline text-left text-black">LinkedIn</div>
+                      <div className="newspaper-body text-xs text-left text-gray-600">
                         Professional networking
                       </div>
                     </div>
@@ -280,9 +216,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               </div>
             </div>
 
-            <div className={`retro-border p-6 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
-            }`}>
+            <div className="retro-border p-6 bg-gray-50">
               <div className="bg-green-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
                 <div className="flex items-center justify-center gap-2">
                   <Clock className="w-4 h-4 animate-spin" />
@@ -293,9 +227,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               
               <div className="space-y-2">
                 <div className="vintage-badge vintage-badge-dark">Available for New Opportunities</div>
-                <p className={`newspaper-body text-sm transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <p className="newspaper-body text-sm text-gray-700">
                   Currently seeking full-time positions starting June 2025
                 </p>
               </div>
@@ -303,9 +235,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
           </div>
 
           <div>
-            <div className={`retro-border p-8 transition-colors duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
-            }`}>
+            <div className="retro-border p-8 bg-gray-50">
               <div className="bg-black text-white p-4 mb-6 animate-pulse">
                 <div className="flex items-center justify-center gap-2">
                   <Send className="w-4 h-4 animate-bounce" />
@@ -316,18 +246,14 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className={`block newspaper-byline mb-2 transition-colors duration-300 ${
-                    isDark ? 'text-gray-100' : 'text-black'
-                  }`}>
+                  <label className="block newspaper-byline mb-2 text-black">
                     FULL NAME *
                   </label>
                   <input
                     type="text"
                     name="name"
                     placeholder="Your complete name"
-                    className={`w-full vintage-input transition-colors duration-300 ${
-                      isDark ? 'bg-gray-700 text-gray-100 border-gray-300' : 'bg-white text-black border-black'
-                    }`}
+                    className="w-full vintage-input bg-white text-black"
                     required
                   />
                   <ValidationError 
@@ -339,18 +265,14 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                 </div>
 
                 <div>
-                  <label className={`block newspaper-byline mb-2 transition-colors duration-300 ${
-                    isDark ? 'text-gray-100' : 'text-black'
-                  }`}>
+                  <label className="block newspaper-byline mb-2 text-black">
                     ELECTRONIC MAIL *
                   </label>
                   <input
                     type="email"
                     name="email"
                     placeholder="your.address@domain.com"
-                    className={`w-full vintage-input transition-colors duration-300 ${
-                      isDark ? 'bg-gray-700 text-gray-100 border-gray-300' : 'bg-white text-black border-black'
-                    }`}
+                    className="w-full vintage-input bg-white text-black"
                     required
                   />
                   <ValidationError 
@@ -362,18 +284,14 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                 </div>
 
                 <div>
-                  <label className={`block newspaper-byline mb-2 transition-colors duration-300 ${
-                    isDark ? 'text-gray-100' : 'text-black'
-                  }`}>
+                  <label className="block newspaper-byline mb-2 text-black">
                     SUBJECT MATTER *
                   </label>
                   <input
                     type="text"
                     name="subject"
                     placeholder="Brief description of inquiry"
-                    className={`w-full vintage-input transition-colors duration-300 ${
-                      isDark ? 'bg-gray-700 text-gray-100 border-gray-300' : 'bg-white text-black border-black'
-                    }`}
+                    className="w-full vintage-input bg-white text-black"
                     required
                   />
                   <ValidationError 
@@ -385,18 +303,14 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
                 </div>
 
                 <div>
-                  <label className={`block newspaper-byline mb-2 transition-colors duration-300 ${
-                    isDark ? 'text-gray-100' : 'text-black'
-                  }`}>
+                  <label className="block newspaper-byline mb-2 text-black">
                     DETAILED MESSAGE *
                   </label>
                   <textarea
                     name="message"
                     placeholder="Please elaborate on your project requirements or opportunity details..."
                     rows={6}
-                    className={`w-full vintage-input resize-none transition-colors duration-300 ${
-                      isDark ? 'bg-gray-700 text-gray-100 border-gray-300' : 'bg-white text-black border-black'
-                    }`}
+                    className="w-full vintage-input resize-none bg-white text-black"
                     required
                   />
                   <ValidationError 

@@ -13,54 +13,31 @@ import Footer from './components/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     document.title = "The Portfolio Times - Talha Rizwan";
-    
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    
-    if (newTheme) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
   if (isLoading) {
-    return <LoadingScreen onLoadingComplete={handleLoadingComplete} isDark={isDark} />;
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-gray-100' : 'bg-white text-black'
-    }`}>
-      <Header isDark={isDark} toggleTheme={toggleTheme} />
-      <Hero isDark={isDark} />
-      <About isDark={isDark} />
-      <Experience isDark={isDark} />
-      <Projects isDark={isDark} />
-      <Skills isDark={isDark} />
-      <Education isDark={isDark} />
-      <Resume isDark={isDark} />
-      <Contact isDark={isDark} />
-      <Footer isDark={isDark} />
+    <div className="min-h-screen bg-white text-black">
+      <Header isDark={false} toggleTheme={() => {}} />
+      <Hero isDark={false} />
+      <About isDark={false} />
+      <Experience isDark={false} />
+      <Projects isDark={false} />
+      <Skills isDark={false} />
+      <Education isDark={false} />
+      <Resume isDark={false} />
+      <Contact isDark={false} />
+      <Footer isDark={false} />
     </div>
   );
 }
