@@ -150,7 +150,9 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
   ];
 
   return (
-    <section ref={sectionRef} id="education" className="newspaper-section py-20 bg-gray-50">
+    <section ref={sectionRef} id="education" className={`newspaper-section py-20 transition-colors duration-300 ${
+      isDark ? 'bg-gray-900' : 'bg-gray-50'
+    }`}>
       <div className="container mx-auto px-4">
         <div ref={mastheadRef} className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -158,19 +160,27 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
           
-          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
+          <div className={`text-xs uppercase tracking-widest mb-2 transition-colors duration-300 ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Section F • Academic Record • Page 6 • {new Date().toLocaleDateString()}
           </div>
-          <h2 className="newspaper-headline text-5xl mb-4 text-black">
+          <h2 className={`newspaper-headline text-5xl mb-4 transition-colors duration-300 ${
+            isDark ? 'text-gray-100' : 'text-black'
+          }`}>
             EDUCATION
           </h2>
-          <div className="newspaper-subhead text-lg text-gray-600">
+          <div className={`newspaper-subhead text-lg transition-colors duration-300 ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Academic Excellence & Scholarly Pursuits
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div ref={educationCardRef} className="retro-border p-8 mb-8">
+          <div ref={educationCardRef} className={`retro-border p-8 mb-8 transition-colors duration-300 ${
+            isDark ? 'bg-gray-800' : 'bg-white'
+          }`}>
             <div className="bg-black text-white p-4 mb-6 academic-flash">
               <div className="flex items-center gap-3 justify-center">
                 <BookOpen className="w-6 h-6 animate-pulse" />
@@ -181,14 +191,20 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
-                <h3 className="newspaper-headline text-3xl mb-2 text-black">
+                <h3 className={`newspaper-headline text-3xl mb-2 transition-colors duration-300 ${
+                  isDark ? 'text-gray-100' : 'text-black'
+                }`}>
                   Bachelor of Software Engineering
                 </h3>
-                <p className="newspaper-subhead text-xl mb-4 text-gray-600">
+                <p className={`newspaper-subhead text-xl mb-4 transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-600'
+                }`}>
                   FAST National University of Computer & Emerging Sciences
                 </p>
                 
-                <div className="flex items-center gap-6 mb-6 newspaper-byline text-sm text-gray-500">
+                <div className={`flex items-center gap-6 mb-6 newspaper-byline text-sm transition-colors duration-300 ${
+                  isDark ? 'text-gray-400' : 'text-gray-500'
+                }`}>
                   <div className="flex items-center gap-1">
                     <MapPin className="w-4 h-4" />
                     <span>Islamabad, Pakistan</span>
@@ -201,8 +217,12 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
                 <div className="newspaper-columns-2">
                   <div>
-                    <h4 className="newspaper-byline mb-3 text-black">ACADEMIC HIGHLIGHTS</h4>
-                    <ul className="newspaper-body space-y-2 text-gray-700">
+                    <h4 className={`newspaper-byline mb-3 transition-colors duration-300 ${
+                      isDark ? 'text-gray-100' : 'text-black'
+                    }`}>ACADEMIC HIGHLIGHTS</h4>
+                    <ul className={`newspaper-body space-y-2 transition-colors duration-300 ${
+                      isDark ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       <li>• Excelled in Software Quality Assurance with B+ grade</li>
                       <li>• Strong performance in Web Development and OOP</li>
                       <li>• Active participation in department society</li>
@@ -211,8 +231,12 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
                   </div>
 
                   <div>
-                    <h4 className="newspaper-byline mb-3 text-black">EXTRACURRICULAR</h4>
-                    <ul className="newspaper-body space-y-2 text-gray-700">
+                    <h4 className={`newspaper-byline mb-3 transition-colors duration-300 ${
+                      isDark ? 'text-gray-100' : 'text-black'
+                    }`}>EXTRACURRICULAR</h4>
+                    <ul className={`newspaper-body space-y-2 transition-colors duration-300 ${
+                      isDark ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       <li>• Software Engineering Society Member</li>
                       <li>• Web Development Team Lead</li>
                       <li>• Tech Workshop Organizer</li>
@@ -222,14 +246,22 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
               </div>
 
               <div className="text-center">
-                <div className="retro-border p-6">
-                  <div className="newspaper-byline mb-2 text-gray-500">
+                <div className={`retro-border p-6 transition-colors duration-300 ${
+                  isDark ? 'bg-gray-700' : 'bg-white'
+                }`}>
+                  <div className={`newspaper-byline mb-2 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
                     Final Year Student
                   </div>
-                  <div className="newspaper-byline mb-2 text-gray-500">
+                  <div className={`newspaper-byline mb-2 transition-colors duration-300 ${
+                    isDark ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
                     Current CGPA
                   </div>
-                  <div className="cgpa-number newspaper-headline text-5xl text-black">
+                  <div className={`cgpa-number newspaper-headline text-5xl transition-colors duration-300 ${
+                    isDark ? 'text-gray-100' : 'text-black'
+                  }`}>
                     3.06
                   </div>
                 </div>
@@ -238,6 +270,9 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
 
             <div className="mt-8">
               <div className="retro-border p-6">
+              <div className={`retro-border p-6 transition-colors duration-300 ${
+                isDark ? 'bg-gray-700' : 'bg-white'
+              }`}>
                 <div className="bg-black text-white p-4 mb-6 academic-flash">
                   <div className="flex items-center gap-3 justify-center">
                     <Star className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
@@ -246,10 +281,14 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
                   </div>
                 </div>
                 
-                <h5 className="newspaper-headline text-xl mb-2 text-black">
+                <h5 className={`newspaper-headline text-xl mb-2 transition-colors duration-300 ${
+                  isDark ? 'text-gray-100' : 'text-black'
+                }`}>
                   Gamified 3D Platform for Teaching SQA
                 </h5>
-                <p className="newspaper-body mb-4 text-gray-700">
+                <p className={`newspaper-body mb-4 transition-colors duration-300 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   Developing an innovative educational platform that combines 3D visualization 
                   with gamification to teach Software Quality Assurance concepts.
                 </p>
@@ -264,7 +303,9 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
             </div>
           </div>
 
-          <div ref={courseworkRef} className="retro-border p-6">
+          <div ref={courseworkRef} className={`retro-border p-6 transition-colors duration-300 ${
+            isDark ? 'bg-gray-800' : 'bg-white'
+          }`}>
             <div className="bg-black text-white p-4 mb-6 academic-flash">
               <div className="flex items-center justify-center gap-2">
                 <Target className="w-4 h-4 animate-pulse" />
@@ -286,9 +327,14 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
                   {courses.map((course, index) => (
                     <tr key={index} className="course-row">
                       <td className="newspaper-body text-gray-700">
+                      <td className={`newspaper-body transition-colors duration-300 ${
+                        isDark ? 'text-gray-300' : 'text-gray-700'
+                      }`}>
                         {course.name}
                       </td>
-                      <td className="newspaper-body text-center text-gray-700">
+                      <td className={`newspaper-body text-center transition-colors duration-300 ${
+                        isDark ? 'text-gray-300' : 'text-gray-700'
+                      }`}>
                         {course.credits}
                       </td>
                       <td className={`newspaper-byline text-center ${

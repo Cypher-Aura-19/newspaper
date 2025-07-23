@@ -151,7 +151,9 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
   ];
 
   return (
-    <section ref={sectionRef} id="projects" className="newspaper-section py-20 bg-gray-50">
+    <section ref={sectionRef} id="projects" className={`newspaper-section py-20 transition-colors duration-300 ${
+      isDark ? 'bg-gray-900' : 'bg-gray-50'
+    }`}>
       <div className="container mx-auto px-4">
         <div ref={mastheadRef} className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -159,20 +161,28 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
           
-          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
+          <div className={`text-xs uppercase tracking-widest mb-2 transition-colors duration-300 ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Section D • Technical Portfolio • Page 4 • {new Date().toLocaleDateString()}
           </div>
-          <h2 className="newspaper-headline text-5xl mb-4 text-black">
+          <h2 className={`newspaper-headline text-5xl mb-4 transition-colors duration-300 ${
+            isDark ? 'text-gray-100' : 'text-black'
+          }`}>
             PROJECT SHOWCASE
           </h2>
-          <div className="newspaper-subhead text-lg text-gray-600">
+          <div className={`newspaper-subhead text-lg transition-colors duration-300 ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Portfolio of Technical Excellence & Innovation
           </div>
         </div>
 
         <div ref={projectsRef} className="space-y-12">
           {projects.map((project, index) => (
-            <article key={index} className="project-card retro-border p-8">
+            <article key={index} className={`project-card retro-border p-8 transition-colors duration-300 ${
+              isDark ? 'bg-gray-800' : 'bg-white'
+            }`}>
               <div className="bg-black text-white p-4 mb-6 project-flash">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -182,11 +192,20 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                   </div>
                   <div className="flex gap-2">
                     <button className="vintage-btn p-2 bg-white text-black border-2 border-white hover:bg-black hover:text-white">
+                    <button className={`vintage-btn p-2 border-2 transition-all duration-300 ${
+                      isDark
+                        ? 'bg-gray-700 text-gray-100 border-gray-300 hover:bg-gray-300 hover:text-gray-900'
+                        : 'bg-white text-black border-white hover:bg-black hover:text-white'
+                    }`}>
                       <a href="https://github.com/Cypher-Aura-19" target="_blank" rel="noopener noreferrer">
                         <Github className="w-5 h-5" />
                       </a>
                     </button>
-                    <button className="vintage-btn p-2 bg-white text-black border-2 border-white hover:bg-black hover:text-white">
+                    <button className={`vintage-btn p-2 border-2 transition-all duration-300 ${
+                      isDark
+                        ? 'bg-gray-700 text-gray-100 border-gray-300 hover:bg-gray-300 hover:text-gray-900'
+                        : 'bg-white text-black border-white hover:bg-black hover:text-white'
+                    }`}>
                       <ExternalLink className="w-5 h-5" />
                     </button>
                   </div>
@@ -196,7 +215,9 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-4">
-                    <h3 className="newspaper-headline text-2xl text-black">
+                    <h3 className={`newspaper-headline text-2xl transition-colors duration-300 ${
+                      isDark ? 'text-gray-100' : 'text-black'
+                    }`}>
                       {project.title}
                     </h3>
                     <span className={`vintage-badge ${
@@ -206,18 +227,26 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                     </span>
                   </div>
                   
-                  <p className="newspaper-subhead mb-4 text-gray-600">
+                  <p className={`newspaper-subhead mb-4 transition-colors duration-300 ${
+                    isDark ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                     {project.type}
                   </p>
 
-                  <p className="newspaper-body mb-6 text-gray-700">
+                  <p className={`newspaper-body mb-6 transition-colors duration-300 ${
+                    isDark ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
                     {project.description}
                   </p>
 
                   <div className="newspaper-columns-2">
                     <div>
-                      <h4 className="newspaper-byline mb-3 text-black">KEY FEATURES</h4>
-                      <ul className="newspaper-body space-y-1 text-gray-700">
+                      <h4 className={`newspaper-byline mb-3 transition-colors duration-300 ${
+                        isDark ? 'text-gray-100' : 'text-black'
+                      }`}>KEY FEATURES</h4>
+                      <ul className={`newspaper-body space-y-1 transition-colors duration-300 ${
+                        isDark ? 'text-gray-300' : 'text-gray-700'
+                      }`}>
                         {project.features.map((feature, idx) => (
                           <li key={idx}>• {feature}</li>
                         ))}
@@ -226,7 +255,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
 
                     <div>
                       <h4 className="newspaper-byline mb-3 text-black">PROJECT IMPACT</h4>
-                      <p className="newspaper-body text-gray-700">
+                      <h4 className={`newspaper-byline mb-3 transition-colors duration-300 ${
+                        isDark ? 'text-gray-100' : 'text-black'
+                      }`}>PROJECT IMPACT</h4>
+                      <p className={`newspaper-body transition-colors duration-300 ${
+                        isDark ? 'text-gray-300' : 'text-gray-700'
+                      }`}>
                         {project.impact}
                       </p>
                     </div>
@@ -234,7 +268,9 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
                 </div>
 
                 <div>
-                  <div className="retro-border p-6">
+                  <div className={`retro-border p-6 transition-colors duration-300 ${
+                    isDark ? 'bg-gray-700' : 'bg-white'
+                  }`}>
                     <div className="bg-black text-white p-4 mb-6 animate-pulse">
                       <div className="flex items-center justify-center gap-2">
                         <Code className="w-4 h-4 animate-bounce" />
@@ -257,7 +293,9 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
           ))}
         </div>
 
-        <div ref={futureRef} className="mt-12 text-center retro-border p-8">
+        <div ref={futureRef} className={`mt-12 text-center retro-border p-8 transition-colors duration-300 ${
+          isDark ? 'bg-gray-800' : 'bg-white'
+        }`}>
           <div className="bg-red-700 text-white p-4 mb-6 animate-pulse border-2 border-black">
             <div className="flex items-center justify-center gap-2">
               <Lightbulb className="w-5 h-5 animate-bounce" />
@@ -265,10 +303,14 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
               <Zap className="w-5 h-5 animate-bounce" style={{ animationDelay: '0.3s' }} />
             </div>
           </div>
-          <h3 className="newspaper-headline text-3xl mb-4 text-black">
+          <h3 className={`newspaper-headline text-3xl mb-4 transition-colors duration-300 ${
+            isDark ? 'text-gray-100' : 'text-black'
+          }`}>
             MORE PROJECTS COMING SOON
           </h3>
-          <p className="newspaper-body mb-6 text-gray-700">
+          <p className={`newspaper-body mb-6 transition-colors duration-300 ${
+            isDark ? 'text-gray-300' : 'text-gray-700'
+          }`}>
             I'm constantly working on new projects and exploring emerging technologies. 
             Stay tuned for updates on my latest work!
           </p>

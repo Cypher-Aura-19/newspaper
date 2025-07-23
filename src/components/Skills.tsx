@@ -211,7 +211,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
   const certifications = ["AWS Cloud Practitioner (In Progress)", "Google UX Design Certificate (Planned)", "Certified Scrum Master (Planned)", "ISTQB Foundation Level (Completed)"];
 
   return (
-    <section ref={sectionRef} id="skills" className="newspaper-section py-20 bg-white">
+    <section ref={sectionRef} id="skills" className={`newspaper-section py-20 transition-colors duration-300 ${
+      isDark ? 'bg-gray-900' : 'bg-white'
+    }`}>
       <div className="container mx-auto px-4">
         <div ref={mastheadRef} className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -219,20 +221,28 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
           <div className="absolute bottom-2 left-0 right-0 h-px bg-black"></div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black"></div>
           
-          <div className="text-xs uppercase tracking-widest mb-2 text-gray-600">
+          <div className={`text-xs uppercase tracking-widest mb-2 transition-colors duration-300 ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Section E • Technical Expertise • Page 5 • {new Date().toLocaleDateString()}
           </div>
-          <h2 className="newspaper-headline text-5xl mb-4 text-black">
+          <h2 className={`newspaper-headline text-5xl mb-4 transition-colors duration-300 ${
+            isDark ? 'text-gray-100' : 'text-black'
+          }`}>
             SKILLS & EXPERTISE
           </h2>
-          <div className="newspaper-subhead text-lg text-gray-600">
+          <div className={`newspaper-subhead text-lg transition-colors duration-300 ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Technical Proficiency & Professional Capabilities
           </div>
         </div>
 
         <div ref={skillsGridRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {skillCategories.map((category, index) => (
-            <div key={index} className="skill-card retro-border p-6 bg-gray-50">
+            <div key={index} className={`skill-card retro-border p-6 transition-colors duration-300 ${
+              isDark ? 'bg-gray-800' : 'bg-gray-50'
+            }`}>
               <div className="bg-black text-white p-4 mb-6 skills-flash">
                 <div className="flex items-center gap-3 justify-center">
                   {category.icon}
@@ -244,10 +254,14 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="newspaper-body font-semibold text-black">
+                      <span className={`newspaper-body font-semibold transition-colors duration-300 ${
+                        isDark ? 'text-gray-100' : 'text-black'
+                      }`}>
                         {skill.name}
                       </span>
-                      <span className="newspaper-byline text-xs text-gray-500">
+                      <span className={`newspaper-byline text-xs transition-colors duration-300 ${
+                        isDark ? 'text-gray-400' : 'text-gray-500'
+                      }`}>
                         {skill.experience}
                       </span>
                     </div>
@@ -265,7 +279,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         </div>
 
         <div ref={additionalSkillsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="additional-skill retro-border p-6 bg-gray-50">
+          <div className={`additional-skill retro-border p-6 transition-colors duration-300 ${
+            isDark ? 'bg-gray-800' : 'bg-gray-50'
+          }`}>
             <div className="bg-black text-white p-4 mb-6 skills-flash">
               <div className="flex items-center justify-center gap-2">
                 <Award className="w-4 h-4 animate-bounce" />
@@ -283,7 +299,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
             </div>
           </div>
 
-          <div className="additional-skill retro-border p-6 bg-gray-50">
+          <div className={`additional-skill retro-border p-6 transition-colors duration-300 ${
+            isDark ? 'bg-gray-800' : 'bg-gray-50'
+          }`}>
             <div className="bg-black text-white p-4 mb-6 skills-flash">
               <div className="flex items-center justify-center gap-2">
                 <TrendingUp className="w-4 h-4 animate-pulse" />
@@ -301,7 +319,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
             </div>
           </div>
 
-          <div className="additional-skill retro-border p-6 bg-gray-50">
+          <div className={`additional-skill retro-border p-6 transition-colors duration-300 ${
+            isDark ? 'bg-gray-800' : 'bg-gray-50'
+          }`}>
             <div className="bg-black text-white p-4 mb-6 skills-flash">
               <div className="flex items-center justify-center gap-2">
                 <TestTube className="w-4 h-4 animate-pulse" />
