@@ -5,7 +5,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ isDark }) => {
-  const quickLinks = ['About', 'Experience', 'Projects', 'Skills', 'Education', 'Contact'];
+  const quickLinks = ['About', 'Experience', 'Projects', 'Skills', 'Education', 'Resume', 'Contact'];
   const technologies = ['React', 'Next.js', 'Three.js', 'Node.js', 'MongoDB', 'TypeScript'];
 
   const scrollToSection = (section: string) => {

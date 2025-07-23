@@ -16,6 +16,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     { name: 'Projects', icon: FolderOpen, id: 'projects' },
     { name: 'Skills', icon: Award, id: 'skills' },
     { name: 'Education', icon: GraduationCap, id: 'education' },
+    { name: 'Resume', icon: FileText, id: 'resume' },
     { name: 'Contact', icon: Mail, id: 'contact' }
   ];
 

@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import Resume from './components/Resume';
 import Footer from './components/Footer';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Projects isDark={false} />
       <Skills isDark={false} />
       <Education isDark={false} />
+      <Resume isDark={false} />
       <Contact isDark={false} />
       <Footer isDark={false} />
     </div>
