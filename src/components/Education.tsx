@@ -17,6 +17,9 @@ const Education: React.FC<EducationProps> = ({ isDark }) => {
   const courseworkRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
     const ctx = gsap.context(() => {
       // Masthead - academic achievement announcement
       gsap.fromTo(mastheadRef.current,

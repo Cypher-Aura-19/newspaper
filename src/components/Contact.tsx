@@ -1,6 +1,11 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Phone, Mail, MapPin, Github, Linkedin, Send, CheckCircle, Radio, Megaphone, Clock, AlertCircle, Zap } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ContactProps {
   isDark: boolean;
@@ -9,9 +14,34 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({ isDark }) => {
   const [state, handleSubmit] = useForm("mrblelvy");
 
+  useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
+    const ctx = gsap.context(() => {
+      // Simple fade-in animations for desktop only
+      gsap.fromTo(".contact-section",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact-section",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   if (state.succeeded) {
     return (
-      <section id="contact" className="newspaper-section py-20 bg-white">
+      <section id="contact" className="newspaper-section py-20 bg-white contact-section">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 masthead relative">
             <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>
@@ -76,7 +106,7 @@ const Contact: React.FC<ContactProps> = ({ isDark }) => {
   }
 
   return (
-    <section id="contact" className="newspaper-section py-20 bg-white">
+    <section id="contact" className="newspaper-section py-20 bg-white contact-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 masthead relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-black"></div>

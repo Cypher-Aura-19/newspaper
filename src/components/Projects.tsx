@@ -17,6 +17,9 @@ const Projects: React.FC<ProjectsProps> = ({ isDark }) => {
   const futureRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
     const ctx = gsap.context(() => {
       // Masthead - special edition announcement effect
       gsap.fromTo(mastheadRef.current,

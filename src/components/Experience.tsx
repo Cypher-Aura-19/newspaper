@@ -17,6 +17,9 @@ const Experience: React.FC<ExperienceProps> = ({ isDark }) => {
   const opportunitiesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
     const ctx = gsap.context(() => {
       // Masthead - breaking news alert animation
       gsap.fromTo(mastheadRef.current,

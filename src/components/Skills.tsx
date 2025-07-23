@@ -17,6 +17,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
   const additionalSkillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
     const ctx = gsap.context(() => {
       // Masthead - special skills edition announcement
       gsap.fromTo(mastheadRef.current,

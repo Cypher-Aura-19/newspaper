@@ -18,6 +18,9 @@ const About: React.FC<AboutProps> = ({ isDark }) => {
   const philosophyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only enable animations on desktop (screen width > 768px)
+    if (window.innerWidth <= 768) return;
+    
     const ctx = gsap.context(() => {
       // Masthead animation - newspaper printing effect
       gsap.fromTo(mastheadRef.current, 
