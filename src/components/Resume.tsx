@@ -93,17 +93,6 @@ const Resume: React.FC<ResumeProps> = ({ isDark }) => {
           </div>
         </div>
 
-        {/* Download Button */}
-        <div className="text-center mb-8 no-pdf">
-          <button
-            onClick={downloadPDF}
-            className="vintage-btn-dark vintage-btn inline-flex items-center gap-2 text-sm sm:text-base"
-          >
-            <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-            DOWNLOAD RESUME
-          </button>
-        </div>
-
         {/* Resume Content */}
         <div className="max-w-4xl mx-auto">
           <div ref={resumeRef} className="retro-border p-8 bg-white pdf-content" style={{ 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code, Database, Wrench, TestTube, Zap, TrendingUp, Award, Target, Cpu, Monitor } from 'lucide-react';
+import { Code, Database, Wrench, TestTube, TrendingUp, Award, Target, Cpu, Monitor } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,7 +129,9 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         { name: "Tailwind CSS", experience: "2+ years", level: 90 },
         { name: "HTML/CSS", experience: "3+ years", level: 95 },
         { name: "JavaScript", experience: "2.5+ years", level: 90 },
-        { name: "Angular", experience: "1+ year", level: 70 }
+        { name: "Angular", experience: "1+ year", level: 70 },
+        { name: "Vue.js", experience: "8+ months", level: 65 },
+        { name: "SASS/SCSS", experience: "2+ years", level: 85 }
       ]
     },
     {
@@ -141,37 +143,72 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
         { name: "Spring Boot", experience: "1+ year", level: 70 },
         { name: "REST APIs", experience: "2+ years", level: 85 },
         { name: "GraphQL", experience: "6+ months", level: 65 },
-        { name: "Microservices", experience: "1+ year", level: 70 }
+        { name: "Microservices", experience: "1+ year", level: 70 },
+        { name: "FastAPI", experience: "8+ months", level: 70 },
+        { name: "Django", experience: "1+ year", level: 75 }
       ]
     },
     {
-      title: "DATABASE & TOOLS",
+      title: "DATABASE & CLOUD",
       icon: <Cpu className="w-6 h-6 animate-bounce" />,
       skills: [
         { name: "MongoDB", experience: "1.5+ years", level: 80 },
         { name: "MySQL", experience: "2+ years", level: 85 },
         { name: "PostgreSQL", experience: "1+ year", level: 75 },
         { name: "Redis", experience: "6+ months", level: 65 },
-        { name: "Git", experience: "2.5+ years", level: 90 },
-        { name: "Docker", experience: "1+ year", level: 70 }
+        { name: "Firebase", experience: "1+ year", level: 80 },
+        { name: "AWS Services", experience: "8+ months", level: 70 },
+        { name: "Google Cloud", experience: "6+ months", level: 65 }
       ]
     },
     {
-      title: "QUALITY ASSURANCE",
+      title: "TESTING & QA",
       icon: <Target className="w-6 h-6 animate-pulse" />,
       skills: [
         { name: "Black-box Testing", experience: "1.5+ years", level: 85 },
         { name: "White-box Testing", experience: "1.5+ years", level: 80 },
+        { name: "Integration Testing", experience: "1+ year", level: 80 },
+        { name: "Performance Testing", experience: "1+ year", level: 75 },
         { name: "SonarQube", experience: "1+ year", level: 75 },
         { name: "Cypress", experience: "1+ year", level: 70 },
         { name: "Jest", experience: "1+ year", level: 75 },
-        { name: "Python Scripting", experience: "2+ years", level: 80 }
+        { name: "Selenium", experience: "1+ year", level: 70 },
+        { name: "Postman", experience: "2+ years", level: 85 }
+      ]
+    },
+    {
+      title: "UI/UX DESIGN",
+      icon: <Award className="w-6 h-6 animate-spin" style={{ animationDuration: '3s' }} />,
+      skills: [
+        { name: "Figma", experience: "2+ years", level: 85 },
+        { name: "Adobe XD", experience: "1.5+ years", level: 80 },
+        { name: "Sketch", experience: "1+ year", level: 70 },
+        { name: "Wireframing", experience: "2+ years", level: 85 },
+        { name: "Prototyping", experience: "2+ years", level: 80 },
+        { name: "User Research", experience: "1+ year", level: 75 },
+        { name: "Design Systems", experience: "1.5+ years", level: 80 },
+        { name: "Responsive Design", experience: "2+ years", level: 90 }
+      ]
+    },
+    {
+      title: "DEVOPS & TOOLS",
+      icon: <Wrench className="w-6 h-6 animate-bounce" />,
+      skills: [
+        { name: "Git", experience: "2.5+ years", level: 90 },
+        { name: "Docker", experience: "1+ year", level: 70 },
+        { name: "CI/CD Pipelines", experience: "1+ year", level: 75 },
+        { name: "GitHub Actions", experience: "1+ year", level: 75 },
+        { name: "Jenkins", experience: "8+ months", level: 65 },
+        { name: "Linux/Unix", experience: "2+ years", level: 80 },
+        { name: "Nginx", experience: "1+ year", level: 70 },
+        { name: "PM2", experience: "1+ year", level: 75 }
       ]
     }
   ];
 
-  const designTools = ["Adobe Photoshop", "Adobe Illustrator", "Figma", "Blender", "Canva"];
-  const softSkills = ["Problem Solving", "Team Collaboration", "Agile Development", "Project Management", "Technical Writing", "Code Review"];
+  const designTools = ["Adobe Photoshop", "Adobe Illustrator", "Adobe After Effects", "Blender", "Canva", "InVision", "Principle", "Framer"];
+  const softSkills = ["Problem Solving", "Team Collaboration", "Agile Development", "Project Management", "Technical Writing", "Code Review", "User Experience Research", "Cross-functional Communication"];
+  const certifications = ["AWS Cloud Practitioner (In Progress)", "Google UX Design Certificate (Planned)", "Certified Scrum Master (Planned)", "ISTQB Foundation Level (Completed)"];
 
   return (
     <section ref={sectionRef} id="skills" className="newspaper-section py-20 bg-white">
@@ -267,16 +304,19 @@ const Skills: React.FC<SkillsProps> = ({ isDark }) => {
           <div className="additional-skill retro-border p-6 bg-gray-50">
             <div className="bg-black text-white p-4 mb-6 skills-flash">
               <div className="flex items-center justify-center gap-2">
-                <Zap className="w-4 h-4 animate-spin" />
-                <h3 className="newspaper-byline text-white text-center">CURRENTLY LEARNING</h3>
+                <TestTube className="w-4 h-4 animate-pulse" />
+                <h3 className="newspaper-byline text-white text-center">CERTIFICATIONS</h3>
               </div>
             </div>
-            <ul className="newspaper-body space-y-2 text-gray-700">
-              <li>• Advanced Three.js & WebGL</li>
-              <li>• Machine Learning Basics</li>
-              <li>• Cloud Technologies (AWS)</li>
-              <li>• Advanced React Patterns</li>
-            </ul>
+            <div className="flex flex-wrap gap-2">
+              {certifications.map((cert, index) => (
+                <span key={index} className={`vintage-badge text-xs ${
+                  index % 2 === 0 ? 'vintage-badge-dark' : ''
+                }`}>
+                  {cert}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
