@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Home, User, Briefcase, FolderOpen, Award, GraduationCap, Mail, Hash, MessageCircle, Users, Settings } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, FolderOpen, Award, GraduationCap, Mail, Hash, MessageCircle, Users, Settings, FileText } from 'lucide-react';
 
 interface HeaderProps {
   isDark: boolean;
