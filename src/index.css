@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark mode configuration */
+html.dark {
+  color-scheme: dark;
+}
+
 /* Vintage newspaper fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -62,6 +67,7 @@
     position: relative;
     background: white;
     box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+    overflow: hidden;
   }
 
   .retro-border::before {
@@ -93,7 +99,6 @@
       linear-gradient(45deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%);
     background-size: 15px 15px, 30px 30px;
     position: relative;
-    overflow: hidden;
   }
 
   /* Newspaper ink bleed effect */
@@ -143,6 +148,7 @@
     font-weight: 400;
     font-style: italic;
     letter-spacing: 1.5px;
+    line-height: 1;
   }
 
   .newspaper-body {
@@ -161,7 +167,6 @@
     text-transform: uppercase;
     letter-spacing: 2.5px;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-    line-height: 1;
   }
 
   /* Vintage borders and decorations */
@@ -655,103 +660,123 @@
   }
 
   /* Dark theme overrides */
-  .dark {
-    background: #1a1a1a !important;
-    color: #f0f0f0 !important;
+  html.dark {
+    background: #111827;
+    color: #f9fafb;
   }
 
-  .dark .vintage-card {
-    background: #2a2a2a;
-    border-color: #f0f0f0;
-    color: #f0f0f0;
+  html.dark .retro-border {
+    border-color: #d1d5db;
+    background: #1f2937;
+    box-shadow: 8px 8px 0px rgba(209, 213, 219, 0.3);
   }
 
-  .dark .vintage-card:hover {
-    box-shadow: 8px 8px 0px #f0f0f0;
+  html.dark .retro-border::before {
+    border-color: #d1d5db;
   }
 
-  .dark .vintage-btn {
-    background: #2a2a2a;
-    color: #f0f0f0;
-    border-color: #f0f0f0;
+  html.dark .retro-border::after {
+    border-color: #9ca3af;
   }
 
-  .dark .vintage-btn:hover {
-    background: #f0f0f0;
-    color: #1a1a1a;
-    box-shadow: 4px 4px 0px #666;
+  html.dark .vintage-card {
+    background: #1f2937;
+    border-color: #d1d5db;
+    color: #f9fafb;
   }
 
-  .dark .vintage-input {
-    background: #2a2a2a;
-    color: #f0f0f0;
-    border-color: #f0f0f0;
+  html.dark .vintage-card:hover {
+    box-shadow: 10px 10px 0px rgba(209, 213, 219, 0.5);
   }
 
-  .dark .vintage-input:focus {
-    background: #333;
-    box-shadow: inset 4px 4px 0px #444;
+  html.dark .vintage-btn {
+    background: #374151;
+    color: #f9fafb;
+    border-color: #d1d5db;
   }
 
-  .dark .masthead {
-    background: #1a1a1a;
-    border-color: #f0f0f0;
+  html.dark .vintage-btn:hover {
+    background: #d1d5db;
+    color: #111827;
+    box-shadow: 6px 6px 0px rgba(107, 114, 128, 0.6);
   }
 
-  .dark .masthead::before,
-  .dark .masthead::after {
-    background: #f0f0f0;
+  html.dark .vintage-input {
+    background: #374151;
+    color: #f9fafb;
+    border-color: #d1d5db;
   }
 
-  .dark .newspaper-rule {
-    background: #f0f0f0;
+  html.dark .vintage-input:focus {
+    background: #4b5563;
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-color: #9ca3af;
   }
 
-  .dark .newspaper-rule::before,
-  .dark .newspaper-rule::after {
-    background: #f0f0f0;
+  html.dark .masthead {
+    background: #111827;
+    border-color: #d1d5db;
   }
 
-  .dark .newspaper-columns-2,
-  .dark .newspaper-columns-3 {
-    column-rule-color: #f0f0f0;
+  html.dark .masthead::before,
+  html.dark .masthead::after {
+    background: #d1d5db;
   }
 
-  .dark .vintage-progress {
-    background: #2a2a2a;
-    border-color: #f0f0f0;
+  html.dark .newspaper-rule {
+    background: #d1d5db;
   }
 
-  .dark .vintage-progress-fill {
-    background: #f0f0f0;
+  html.dark .newspaper-rule::before,
+  html.dark .newspaper-rule::after {
+    background: #d1d5db;
   }
 
-  .dark .newspaper-section {
-    border-color: #f0f0f0;
+  html.dark .newspaper-columns-2,
+  html.dark .newspaper-columns-3 {
+    column-rule-color: #d1d5db;
   }
 
-  .dark .vintage-table {
-    border-color: #f0f0f0;
+  html.dark .vintage-progress {
+    background: #374151;
+    border-color: #d1d5db;
   }
 
-  .dark .vintage-table th,
-  .dark .vintage-table td {
-    border-color: #f0f0f0;
+  html.dark .vintage-progress-fill {
+    background: #d1d5db;
   }
 
-  .dark .vintage-table th {
-    background: #333;
-    color: #f0f0f0;
+  html.dark .newspaper-section {
+    border-color: #d1d5db;
   }
 
-  .dark .vintage-badge {
-    background: #2a2a2a;
-    color: #f0f0f0;
-    border-color: #f0f0f0;
+  html.dark .vintage-table {
+    border-color: #d1d5db;
+    background: #1f2937;
   }
 
-  .dark .vintage-badge-dark {
-    background: #f0f0f0;
-    color: #1a1a1a;
+  html.dark .vintage-table th,
+  html.dark .vintage-table td {
+    border-color: #d1d5db;
+  }
+
+  html.dark .vintage-table th {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  html.dark .vintage-badge {
+    background: #374151;
+    color: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  html.dark .vintage-badge-dark {
+    background: #d1d5db;
+    color: #111827;
+  }
+
+  html.dark .vintage-badge:hover {
+    box-shadow: 3px 3px 0px rgba(209, 213, 219, 0.5);
   }
 }
